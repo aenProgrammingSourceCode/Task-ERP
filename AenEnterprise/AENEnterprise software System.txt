@@ -1,0 +1,5 @@
+
+
+
+1. Discount will be apply for based on Sales Order not based on product or order item.
+2. Created Sales Order's, Invoices, DO's must be approve by Managment

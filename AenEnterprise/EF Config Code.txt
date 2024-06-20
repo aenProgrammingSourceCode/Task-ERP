@@ -1,0 +1,3 @@
+EF
+1. Add-Migration CreatedInitialTable
+2. Update-Database

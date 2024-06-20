@@ -1,0 +1,156 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminSales_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<script>
+
+    $(document).ready(function () {
+        setDefaultDates();
+        getSalesOrders();
+    });
+
+    async function getSalesOrders() {
+        const dateFromInput = new Date(document.getElementById('dateFromInput').value).toISOString();
+        const dateToInput = new Date(document.getElementById('dateToInput').value).toISOString();
+        await GetAllSalesOrder(dateFromInput, dateToInput);
+    }
+
+    async function GetAllSalesOrder(dateFrom, dateTo) {
+        try {
+            var jsonData = {
+                DateFrom: dateFrom,
+                DateTo: dateTo
+            }
+            var url = 'SalesOrder/GetAllApprovedOrderItemsSummary';
+            var salesResponse = await getAllDataWithParameter(url, jsonData);
+    
+            alert(JSON.stringify(salesResponse));
+            $("#salesOrderElement").setTemplate($("#salesOrdersTemp").html());
+            $("#salesOrderElement").processTemplate(salesResponse);
+            
+
+        } catch (error) {
+            console.error("Error fetching data from the server: " + error.message);
+        }
+    }
+</script>
+
+<style>
+    <style >
+    /* Basic reset */
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    /* Table styling */
+    table {
+        width: 50%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+
+    }
+
+    th, td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+    }
+
+    th {
+        background-color: #f2f2f2;
+    }
+
+    /* Alternate row color */
+    tr:nth-child(even) {
+        background-color: #f9f9f9;
+    }
+</style>
+ <style>
+    .circleAmountTotal{
+        width: 130px;
+        height: 130px;
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        /* First line border */
+        border: 5px double green;
+        /* Second line border */
+        outline: 4px solid blue;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+        font-size:large;
+    }
+ </style>
+ 
+
+<div class="salesOrder-container">
+    <div class="criteria-container">
+        <input type="date" id="dateFromInput">
+        <input type="date" id="dateToInput">
+        <a href="#" onclick="Javascript: getSalesOrders()">Search</a>
+    </div>
+
+    <div id="salesOrderElement"></div>
+    <script type="text/html" id="salesOrdersTemp">
+        <table>
+            <thead><tr><th>Total Sales Orders Amount</th><th>Total Invoice Amount</th> <th>Total Dispatch Amount</th></tr></thead>
+            <tbody><tr><td><div class="circleAmountTotal"> {$T.totalSalesOrderAmount}</div></td><td><div class="circleAmountTotal"> {$T.totalInvoiceAmount} </div> </td><td><div class="circleAmountTotal"> {$T.totalDispatchAmount}</div></td></tr></tbody>
+        </table>
+
+         
+
+    </script>
+</div>
+
+<style>
+    .usermanual{
+        margin:10px;
+        padding:10px;
+        align-items:center;
+    }
+</style>
+
+<div class=usermanual>
+<h1>AEN Software- Sales Module User Manual</h1>
+
+    
+
+    <br /><br />
+    <b>User</b> <br /><p>
+        To Create Sales Order - Click Sales-Select > Create Sales
+Insert necessary Sales Order's form
+    Submit Sales Order
+</p>
+
+    <b>Manager</b><br /> <p>
+        To Approve Created Sales Order- Click Managment-Click Approve Sales Order >
+    Approve Listed Sales Order
+</p>
+
+    <b>User</b><br /> <p>To Create Invoice- Click Sales Option > Click Create Invoice > Edit invoice if necessary Then Click Submit</p>
+
+    <b>Manager </b><br /> <p> To Approve Created Invoice- Click Management Opton > Click Approve Invoice > Checked Listed Invoice which one you want approved > then click approve</p>
+
+    <b>User</b><br /> <p> To Create Delivery Order - Click Sales Option > Click Create Delivery Order > Edit Delivery Order if necessary Then Click Submit</p>
+
+    <b>Manager </b><br /><p> To Approve Created Delivery Order- Click Management Opton > Click Approve Delivery Order > Checked Listed Delivery Order which you want approved > then click approve</p>
+
+    <b>User</b><br /> <p> To Create Dispatch - Click Sales Option > Click Create Dispatch Order > Edit Dispatch Order if necessary Then Click Submit</p>
+    <br />
+Note- This software's managment option is for Manager or Top managment. If Manager or top managment approved Sales Order,Invoice,Delivery Order then user will create next step by step.
+<br />
+<b>Available Systems:</b><br />
+<p>
+        1. Account Registration system<br />
+        2. Fully or Partially approval system<br />
+        3. Managment approval system.<br />
+    </p>
+    <h3 style="color:red"> Ongoing module - Inventory system, Stock management, Purchase management</h3>
+
+</div>

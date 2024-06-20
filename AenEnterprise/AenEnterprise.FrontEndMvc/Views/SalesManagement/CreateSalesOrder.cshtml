@@ -1,0 +1,449 @@
+﻿@{
+    ViewData["Title"] = "CreateSalesOrder";
+    Layout = "~/Views/Shared/AdminSales_Layout.cshtml";
+}
+
+<script src="~/script/ajaxscript.js"></script>
+<script>
+    $(document).ready(function () {
+        GetProductsAll();
+        GetCustomersAll();
+        GetUnitsAll();
+        
+        function handleEnterKeyPress(event) {
+            if (event.keyCode === 13) { // Check if the pressed key is Enter (key code 13)
+                event.preventDefault();
+                $('#part-one input[type="text"]').each(function () {
+                    if ($(this).val() == null || $(this).val() == 0) {
+                        $("#lblexceptionone-part-1").text("Please fill in all fields").css("color", "red");
+                    } else {
+                        $('#part-one').hide();
+                        $('#part-two').show();
+                        $('#part-three').show();
+
+                    }
+                });
+                $('#part-one select').each(function () {
+                    if ($(this).val() == null || $(this).val() == 0) {
+                        $("#lblexceptionone-part-1").text("Please fill in all fields").css("color", "red");
+                    }
+                    else {
+                        $('#part-one').hide();
+                        $('#part-two').show();
+                        $('#part-three').show();
+                    }
+                });
+            }
+        }
+        document.addEventListener('keypress', function (event) {
+            handleEnterKeyPress(event); // Call the function to handle Enter key press
+        });
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('txtOrderDate').value = today;
+        if (document.cookie.includes("SalesOrderId")) {
+            getSalesOrderDetailsByCookie();
+            $('#part-one').hide();
+            $('#part-two').show();
+            $('#part-three').show();
+        }
+        $('#btnToggle').on('click', function () {
+            // It is for part-one
+            $('#part-one input[type="text"]').each(function () {
+                if ($(this).val() == null || $(this).val() == 0) {
+                    $("#lblexceptionone-part-1").text("Please fill in all fields").css("color", "red");
+                } else {
+                    $('#part-one').hide();
+                    $('#part-two').show();
+                    $('#part-three').show();
+
+                }
+            });
+            $('#part-one select').each(function () {
+                if ($(this).val() == null || $(this).val() == 0) {
+                    $("#lblexceptionone-part-1").text("Please fill in all fields").css("color", "red");
+                }
+                else {
+                    $('#part-one').hide();
+                    $('#part-two').show();
+                    $('#part-three').show();
+                }
+            });
+
+            // It is for part-two and three
+            $('#part-two input[type="text"]').each(function () {
+                if ($(this).val() == null || $(this).val() == 0) {
+                    $("#lblexceptionone").text("Please fill in all fields").css("color", "red");
+                }
+            });
+            $('#part-two select').each(function () {
+                if ($(this).val() == null || $(this).val() == 0) {
+                    $("#lblexceptionone").text("Please fill in all fields").css("color", "red");
+                }
+            });
+        });
+        $('#btnAdd').on('click', function () {
+
+            var allFieldsFilled = true;
+
+            $('#part-two input[type="text"]').each(function () {
+                var fieldId = $(this).attr('id');
+                if (fieldId !== 'txtDiscountPercent' && fieldId !== 'txtDescription' && fieldId !== 'txtDeliveryPlane') {
+                    if ($(this).val() === null || $(this).val().trim() === '') {
+                        allFieldsFilled = false;
+                        $("#lblexceptionone-part-2").text("Please fill in all fields").css("color", "red");
+                        return false; // Exit the loop early if any text field is empty
+                    }
+                }
+            });
+
+            $('#part-two select').each(function () {
+                if ($(this).val() === null || $(this).val() === '' || $(this).val() === '0') {
+                    allFieldsFilled = false;
+                    $("#lblexceptionone-part-2").text("Please fill in all fields").css("color", "red");
+                    return false; // Exit the loop early if any dropdown is not selected
+                }
+            });
+
+            if (allFieldsFilled) {
+                CreateSalesOrder(); // If all fields are filled, call the function to create sales order
+                $("#lblexceptionone-part-2").text("").css("color", "red");
+            }
+        });
+        $('#btnCancel').on('click', function () {
+            var salesOrderId = parseInt($("#spnSalesOrderId").text());
+            cancelSalesOrder(salesOrderId);
+            
+        });
+    })
+    
+  async function getSalesOrderDetailsByCookie() {
+        var url = 'SalesOrder/GetSalesOrderDetailsByCookie';
+        var successCallback = function (data) {
+            $("#salesNewOrderElement").setTemplate($("#salesNewOrdersTemp").html());
+            $("#salesNewOrderElement").processTemplate(data.salesOrder);
+        };
+       await getByData(url, successCallback);
+    }
+  async function cancelSalesOrder(salesOrderId)
+  {
+      var SalesOrderId = salesOrderId;
+        var url = 'SalesOrder/CancelSalesOrder?salesOrderId=' + SalesOrderId;
+        var successCallback = function () {
+           console.log("Success Cancellation")
+            window.location.href = '@Url.Action("CreateSalesOrder","SalesManagement")';
+        };
+      await deleteDataById(url, successCallback);
+  }
+  async function AddSalesOrders() {
+        const url = 'SalesOrder/AddSalesOrders';
+        try {
+            await postDataWithoutParameterAndReturn(url);
+            } catch (error) {
+            // Handle errors
+            console.error(error);
+        }
+    }
+   
+   async function CreateSalesOrder() {
+        var customerId = $("#ddlCustomerId").val();
+        var productId = $("#ddlProductId").val();
+        var unitId = $("#ddlUnitId").val();
+        var orderDate = new Date($("#txtOrderDate").val()).toISOString();
+        var description = $("#txtDescription").val();
+        var quantity = $("#txtQuantity").val();
+        var price = $("#txtPrice").val();
+        var discountPercent = $("#txtDiscountPercent").val();
+        var deliveryPlane = $("#txtDeliveryPlane").val();
+
+        var jsonData = {
+            OrderedDate: orderDate,
+            CustomerId: customerId,
+            ProductId: productId,
+            UnitId: unitId,
+            Description: description,
+            Quantity: quantity,
+            Price: price,
+            DiscountPercent: discountPercent,
+            DeliveryPlane: deliveryPlane
+        };
+
+        var successCallback = function (data) {
+
+            console.log(data);
+            $("#salesNewOrderElement").setTemplate($("#salesNewOrdersTemp").html());
+            $("#salesNewOrderElement").processTemplate(data.salesOrder);
+        };
+
+        var url = 'SalesOrder/CreateSalesOrder';
+        await postDataWithParameterAndReturn(url, jsonData, successCallback);
+    }
+   async function DeleteOrderItem(orderItemId) {
+            var itemId = orderItemId;
+            var salesOrderId = parseInt($("#spnSalesOrderId").text());
+            // var orderItemId = parseInt($("#spnOrderItemId").text());
+            var formRequest = {
+                SalesOrderId: salesOrderId,  // You might need to get the sales order ID dynamically
+            };
+
+        await $.ajax({
+            url: '/api/SalesOrder/DeleteOrderItem?orderItemId=' + itemId,
+            type: 'POST',
+            dataType: 'json',
+            data: JSON.stringify(formRequest),
+            contentType: 'application/json',
+            success: function (data) {
+
+
+                if (data.salesOrder == null) {
+                    window.location.href = '@Url.Action("CreateSalesOrder","SalesManagement")';
+                }
+                else 
+                {
+                    $("#salesNewOrderElement").setTemplate($("#salesNewOrdersTemp").html());
+                    $("#salesNewOrderElement").processTemplate(data.salesOrder);
+                }
+                
+            },
+            error: function (xhr, status, error) {
+                console.error(xhr.responseText);
+            }
+        });
+    }
+   async function GetProductsAll()
+    {
+        $.ajax({
+            url: '/api/Inventory/AllProducts', // Replace with your API endpoint
+            type: 'GET',
+            dataType:'json',
+            // headers: {
+            //     'Authorization': 'Bearer ' + token
+            // },
+            success: function (data) {
+                $("#ddlProductId").setTemplate($("#productsTemp").html());
+                $("#ddlProductId").processTemplate(data);
+            },
+            error: function () {
+                alert("Error fetching data from the server.");
+            }
+        });
+    }
+    function GetUnitsAll() {
+        $.ajax({
+            url: '/api/Inventory/AllUnits', // Replace with your API endpoint
+            type: 'GET',
+            dataType: 'json',
+            // headers: {
+            //     'Authorization': 'Bearer ' + token
+            // },
+            success: function (data) {
+                $("#ddlUnitId").setTemplate($("#unitsTemp").html());
+                $("#ddlUnitId").processTemplate(data);
+            },
+            error: function () {
+                alert("Error fetching data from the server.");
+            }
+        });
+    }
+    function GetCustomersAll() {
+        $.ajax({
+            url: '/api/Customer/AllCustomer', // Replace with your API endpoint
+            type: 'GET',
+            dataType: 'json',
+            // headers: {
+            //     'Authorization': 'Bearer ' + token
+            // },
+            success: function (data) {
+                $("#ddlCustomerId").setTemplate($("#customersTemp").html());
+                $("#ddlCustomerId").processTemplate(data);
+                var jsonData = JSON.stringify(data.salesOrder);
+              
+            },
+            error: function () {
+                alert("Error fetching data from the server.");
+            }
+        });
+    }
+
+  
+
+</script>
+ 
+ <style>
+    .form-footer-button
+    {
+        display:flex;
+        flex-direction:row;
+        gap:300px;
+    }
+
+
+ </style>
+
+
+
+
+<div class="form-container">
+       
+    <style>
+        .form-body {
+            width: 100%;
+            display: flex;
+            flex-direction: row;
+            gap: 20px;
+        }
+    </style>
+    <div class="form-header">
+        <h2> Create Sales Order</h2>
+    </div>
+    <div class="form-body-container">
+    </div>
+    <div class="form-body">
+        <div class="form-body-part" id="part-one">
+            <label>Order Date</label>
+            <input type="date" id="txtOrderDate">
+
+            <label>Customer Name</label>
+            <select id="ddlCustomerId"></select>
+
+            <label id="lblexceptionone-part-1"></label>
+
+            <a href="#" id="btnToggle">Add Items</a>
+        </div>
+        <div class="form-body-part" id="part-two" style="display:none">
+            <label id="lblexceptionone-part-2"></label>
+            <label>Product Name</label>
+            <select id="ddlProductId"></select> 
+            <label>Price</label>
+            <input type="text" id="txtPrice" placeholder="Enter Product Price" />
+            <label>Discount Percent(%)</label>
+            <input type="text" id="txtDiscountPercent" placeholder="Enter discount based on parcent" />
+            <label>Quantity</label>
+            <input type="text" id="txtQuantity" placeholder="Enter Product Quantity" />
+           
+        </div>
+        <div class="form-body-part" id="part-three" style="display:none">
+            
+            <label>Unit Name</label>
+            <select id="ddlUnitId"></select>
+            <label>Delivery Plane</label>
+            <input type="text" id="txtDeliveryPlane" placeholder="Enter description" />
+            <label>Comments</label>
+            <textarea type="text" id="txtDescription"> </textarea>
+            <div class="form-footer-button">
+                <a href="#" id="btnCancel">Cancel</a>
+                <a href="#" id="btnAdd">Add</a>
+            </div>
+        </div>
+    </div>
+
+
+        <div class="form-body-bottom">
+            <div class="salesOrder-container">
+         
+            <div id="salesNewOrderElement"></div>
+                <script type="text/html" id="salesNewOrdersTemp">
+            
+                    <div class="salesOrder-item-data">
+                        <div class="salesOrder-cell">
+                       <span style="font-weight:bold"> {$T.salesOrderNo}</span>
+                        </div>
+                        <div class="salesOrder-cell">
+                                {$T.customerName}
+                        </div>
+                        <div class="salesOrder-cell">
+                                {$T.orderDateInFormat}
+                        </div>
+                        <div class="salesOrder-cell">
+                                                 <input id="btnDeleteAll" type="button" onclick="Javascript: cancelSalesOrder({$T.id});" value="Delete All"/>
+                        </div>
+                    </div>
+            
+                    <div class="orderItems-container"></div>
+                              <div class="orderitem-cell-header-container">
+                                <div class="orderitem-cell-header">
+                                    Item Id
+                                </div>
+                                <div class="orderitem-cell-header">
+                                       Product Name
+                                </div>
+                                <div class="orderitem-cell-header">
+                                    Price
+                                </div>
+                                <div class="orderitem-cell-header">
+                                       Quantity
+                                </div>
+                                 
+                                <div class="orderitem-cell-header">
+                                   Amount
+                                </div>
+                                <div class="orderitem-cell-header">
+                                    Delete Selected
+                                </div>
+            
+                            </div>
+                             {#foreach $T.orderItems as oi}
+                              <div class="orderitem-cell-data-container">
+                            <div class="orderitem-cell-data">
+                                <span id="spnOrderItemId">
+                                                     {$T.oi.id}
+                                </span>
+                                                 <span id="spnSalesOrderId" style=display:none>
+                                                                     {$T.oi.salesOrderId}
+                                                </span>
+                                    
+                            </div>
+                            <div class="orderitem-cell-data">
+                                    {$T.oi.productName}
+                            </div>
+                            <div class="orderitem-cell-data">
+                                    {$T.oi.price}
+                            </div>
+                            <div class="orderitem-cell-data">
+                                        {$T.oi.quantityInFormat} {$T.oi.unitName}
+                            </div>
+                            
+                            <div class="orderitem-cell-data">
+                                      {$T.oi.amountInFormat}
+                            </div>
+                            <div class="orderitem-cell-data">
+                                                    <a href="#" onclick="Javascript:DeleteOrderItem('{$T.oi.id}')">Delete</a>
+                                            </div>
+                        </div>
+                            {#/for}
+
+                             <div class="orderitem-cell-data-container">
+
+                            <div class="orderitem-cell-data">
+                             <div class="preview-footer-body">
+
+    <a href="@Url.Action("GetSalesOrderById", "SalesOrderReport")?salesOrderId={$T.id}" id="btnSubmit" onclick="AddSalesOrders()">Submit</a>
+</div>
+                            </div>
+                        </div>
+                </script>
+            </div>
+        
+        </div>
+  
+    </div>
+
+<script type="text/html" id="customersTemp">
+     
+         <option value="0">Select customer</option>
+    {#foreach $T.customers as record}
+       <option value="{$T.record.id}">{$T.record.name}</option>
+    {#/for}
+    </script>
+<script type="text/html" id="productsTemp">
+         <option value="0">Select Product</option>
+    {#foreach $T.products as record}
+       <option value="{$T.record.id}">{$T.record.name}</option>
+    {#/for}
+    
+</script>
+<script type="text/html" id="unitsTemp">
+         <option value="0">Select Unit</option>
+    {#foreach $T.units as record}
+       <option value="{$T.record.id}">{$T.record.name}</option>
+    {#/for}
+</script>

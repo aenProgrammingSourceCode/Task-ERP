@@ -1,0 +1,240 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/Login_Layout.cshtml";
+}
+ 
+
+
+<script>
+    $(document).ready(function () {
+        // Function to handle login when Enter key is pressed
+        
+        function handleEnterKeyPress(event) {
+            if (event.keyCode === 13) { // Check if the pressed key is Enter (key code 13)
+                event.preventDefault(); // Prevent the default form submission
+                var allFieldsFilled = true;
+                $('.form-group input[type="text"], .form-group input[type="password"]').each(function () {
+                    if ($(this).val() === null || $(this).val().trim() === '') {
+                        allFieldsFilled = false;
+                        $("#lblException").text("Please fill in all fields").css("color", "red");
+                        return false; // Exit the loop early if any text field is empty
+                    }
+                });
+
+                if (allFieldsFilled) {
+                    UserLogin(); // Call the login function (replace with your actual login function name)
+                }
+            }
+        }
+
+        // Attach an event listener to the document for keypress events
+        document.addEventListener('keypress', function (event) {
+            handleEnterKeyPress(event); // Call the function to handle Enter key press
+        });
+
+        // Click event for login button
+        $('#btnLogin').on('click', function (event) {
+            event.preventDefault();
+            handleLogin();
+            var allFieldsFilled = true;
+            $('.form-group input[type="text"], .form-group input[type="password"]').each(function () {
+                if ($(this).val() === null || $(this).val().trim() === '') {
+                    allFieldsFilled = false;
+                    $("#lblException").text("Please fill in all fields").css("color", "red");
+                    return false; // Exit the loop early if any text field is empty
+                }
+            });
+
+            if (allFieldsFilled) {
+                checkUser(); // Call the login function (replace with your actual login function name)
+               
+
+            }
+        });
+    });
+
+    function handleLogin() {
+        var username = $('#txtUsernameLogin').val();
+        var password = $('#txtPasswordLogin').val();
+
+        // Show loader
+        showLoader('sm-Loader');
+
+        UserLogin(username, password);
+    }
+
+    // function UserLogin() {
+    //         var jsonData =
+    //         {
+    //             Username: $("#txtUsernameLogin").val(),
+    //             Password: $("#txtPasswordLogin").val(),
+    //         };
+         
+    //         $.ajax({
+    //             url: '/api/Authen/login',
+    //             method: 'POST',
+    //             contentType: "application/json",
+    //             data: JSON.stringify(jsonData),
+    //             success: function (data) {
+    //                 console.log(data);
+
+    //                 // Save the token in local storage or a cookie
+    //                 localStorage.setItem('Bearer ', data);
+
+    //                 // Redirect to a protected page or perform other actions
+    //                 console.log('Bearer ' + data);
+    //                 window.location.href = '@Url.Action("Index", "SalesManagement")';
+    //             },
+    //             error: function (r) {
+    //                 var jsonError = JSON.stringify(r);
+    //                 alert("Dear Sir Mr.Alam There is Error- Correct it please" + jsonError);
+    //             }
+    //         });
+    // }
+
+    function UserLogin(username, password) {
+        var jsonData = {
+            Username: username,
+            Password: password
+        };
+
+        $.ajax({
+            url: '/api/Authen/login',
+            method: 'POST',
+            contentType: 'application/json',
+            data: JSON.stringify(jsonData),
+            success: function (data) {
+                // Hide loader on success
+                hideLoader('sm-Loader');
+
+                // Save token and redirect
+                localStorage.setItem('Bearer ', data);
+                window.location.href = '@Url.Action("Index", "SalesManagement")';
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                // Hide loader on error
+                hideLoader('sm-Loader');
+
+                // Handle error
+                console.error('Error:', errorThrown);
+                $('#lblException').text('An error occurred.').css('color', 'red');
+            }
+        });
+    }
+
+
+    async function GetUserName() {
+        var username = $("#txtUsernameLogin").val();
+        var password = $("#txtPasswordLogin").val();
+
+        var jsonData = {
+            Username: username,
+            Password: password
+        };
+
+        await $.ajax({
+            url: '/api/Authen/GetUserName',
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            data: JSON.stringify(jsonData),
+            success: function (datas) {
+                var userData = datas.user;
+
+                console.log(userData); // Check the structure of userData in the console
+
+                if (userData && userData.username !== null) {
+                   UserLogin();
+                } else {
+                    
+                    $("#lblException").text("User not found, Create new account").css("color", "red");
+                }
+            },
+            error: function (xhr, textStatus, errorThrown) {
+                // Handle error
+                console.error(textStatus, errorThrown);
+            }
+        });
+    }
+    function checkUser() {
+        var username = $("#txtUsernameLogin").val();
+        var password = $("#txtPasswordLogin").val();
+
+        fetch('/api/Authen/Login', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ Username: username,Password:password })
+        })
+            .then(response => {
+                if (!response.ok) {
+                    return response.text().then(errorMessage => {
+                        $("#lblException").text(errorMessage).css("color", "red");
+                    });
+                }
+                return response.text().then(message => {
+                    UserLogin();
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                $("#lblException").text("An error occurred.").css("color", "red");
+            });
+    }
+
+    function showLoader(idShowLoader) {
+        $("#" + idShowLoader).show();
+    }
+    function hideLoader(idHideLoader) {
+        $("#" + idHideLoader).hide();
+    }
+</script>
+
+<div notice>
+    <h3> <b style="color:red">The software owner Mohammad Alam E Nur Uddin,Call-8801887634913, message declares the legal ownership and rights associated with the software, establishing the individual or entity responsible for its sales, development, distribution, and maintenance." </b></h3>
+    <br />
+
+    <h1>User Registration Manual</h1>
+    <br />
+    <p>
+        1. Click Create account from Login page<br />
+        2. Insert registrion form and Click Ristration button <br />
+        3. Login currently created account
+    </p>
+</div>
+
+
+<div class="login-form" id="loginForm">
+    <div class="custom-form-login" id="frmLogin">
+        <div class="header-login">
+            <h2>Login Account</h2>
+            <hr />
+            <label id="lblException"></label>
+        </div>
+
+        <form method="post" class="form-body">
+            <div class="form-group">
+                <label for="name">User Name:</label>
+                <input id="txtUsernameLogin" name="name" placeholder="Your name or email or phon required" type="text" class="custom-input1" />
+            </div>
+
+            <div class="form-group">
+                <label for="name">Password:</label>
+                <input id="txtPasswordLogin" name="name" placeholder="Your password required" type="password" class="custom-input1" />
+            </div>
+           
+            <div class="button-group">
+                <a class="custom-button submit-button" href="#" id="btnLogin">Login<div id="sm-Loader"></div></a>
+                <a href="#" class="forgot-password-button">Forgot Password</a>
+            </div>
+            <div class="button-group">
+                <a href="@Url.Action("UserRegistration", "Home")">Create account</a><br>
+            </div>
+
+        </form>
+    </div>
+    
+</div>

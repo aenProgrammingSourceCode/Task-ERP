@@ -1,0 +1,192 @@
+﻿
+@{
+    ViewData["Title"] = "CreateInvoice";
+    Layout = "~/Views/Shared/AdminSales_Layout.cshtml";
+}
+
+ 
+
+<script>
+    $(document).ready(function () {
+        var paths = window.location.pathname;
+        var pt = paths.length;
+        var Id = paths.substring(31, pt);
+        getApprovedOrderItemDetails(Id);
+
+    })
+     
+    function getApprovedOrderItemDetails(Id) {
+        $.ajax({
+            url: '/api/SalesOrder/ApprovedOrderItemDetails?salesOrderId=' + Id,
+            type: 'GET',
+            dataType: 'json',
+            contentType: 'application/json;charset-utf-8',
+            success: function (data) {
+                console.log(data);
+                $("#salesOrderDetailsForEditHtml").setTemplate($("#salesOrderDetailsTemp").html());
+                $("#salesOrderDetailsForEditHtml").processTemplate(data.salesOrder);
+            },
+            error: function (er) {
+                var errorSycronim = JSON.stringify(er);
+                alert("eoorr" + errorSycronim);
+            }
+        });
+    }
+   async function CreateInvoice() {
+        var invoiceArray = [];
+
+        $(".orderitem-cell-data-container").each(function () {
+            var productId = $(this).find(".invQuantity").attr("id").replace("Qty-","");
+            var invoiceQuantity = parseFloat($(this).find(".invQuantity").val());
+            var salesOrderId = parseInt($("#salesOrderId").text());
+            var price = parseFloat($(this).find(".orderitem-cell-data #spnPrice").text());
+            var orderItemId = parseInt($(this).find(".orderitem-cell-data #spnOrderItemId").text());
+            var unitId = parseInt($("#unitId").text());
+            var formRequests = {
+                InvoiceQuantity: invoiceQuantity,
+                SalesOrderId: salesOrderId,  // You might need to get the sales order ID dynamically
+                ProductId: productId,
+                Price: price,
+                UnitId:unitId,
+                OrderItemId:orderItemId
+            };
+            invoiceArray.push(formRequests);
+        });
+
+        console.log(JSON.stringify(invoiceArray));
+
+       await $.ajax({
+            url: '/api/SalesOrder/CreateCustomInvoices',
+            type: 'POST',
+            data: JSON.stringify(invoiceArray),
+            contentType: 'application/json',
+            success: function (data) {
+                const invoiceId = data.invoice.id;
+                window.location.href = '@Url.Action("GetInvoiceBySalesOrderId", "SalesOrderReport")?invoiceId='+invoiceId;
+            },
+            error: function (xhr, status, error) {
+                console.error(xhr.responseText);
+                console.log("Error: " + error);
+            }
+        });
+    }
+   
+  
+</script>
+
+<style>
+    /* Define some CSS4 styles for the textbox */
+    input[type="text"] {
+        padding: 10px;
+        border: 2px solid #3498db;
+        border-radius: 5px;
+        outline: none;
+        font-size: 16px;
+        transition: border-color 0.3s;
+        width: 70%;
+    }
+
+        /* Add some styles for focus state */
+        input[type="text"]:focus {
+            border-color: #2ecc71;
+        }
+
+        /* Add some styles for placeholder text */
+        input[type="text"]::placeholder {
+            color: #7f8c8d;
+        }
+</style>
+
+<div class="salesOrder-container">
+    
+    <div id="salesOrderDetailsForEditHtml"></div>
+    <script type="text/html" id="salesOrderDetailsTemp">
+
+
+        <div class="salesOrder-item-data">
+            <div class="salesOrder-cell">
+                  <a href="@Url.Action("GetSalesOrderById", "SalesOrderReport")?salesOrderId={$T.id}">{$T.salesOrderNo}</a>
+                   <div id="salesOrderId" style="display:none" >{$T.id}</div>
+            </div>
+            <div class="salesOrder-cell">
+                                {$T.customerName}
+            </div>
+            <div class="salesOrder-cell">
+                        {$T.orderedDate}
+            </div>
+            <div class="salesOrder-cell">
+                        Delete
+            </div>
+
+        </div>
+
+        <div class="orderItems-container">
+                  <div class="orderitem-cell-header-container">
+                    <div class="orderitem-cell-header">
+                        Item Id
+                    </div>
+                    <div class="orderitem-cell-header">
+                           Product Name
+                    </div>
+                    <div class="orderitem-cell-header">
+                        Price
+                    </div>
+                    <div class="orderitem-cell-header">
+                        Ordered Quantity
+                    </div>
+                    <div class="orderitem-cell-header">
+                          Due Quantity
+                    </div>
+
+                    <div class="orderitem-cell-header">
+                         Invoiced Quantity
+                    </div>
+                    <div class="orderitem-cell-header">
+                       Amount.(Tk)
+                    </div>
+
+                </div>
+                 {#foreach $T.orderItems as record}
+
+            <div class="orderitem-cell-data-container">
+                <div class="orderitem-cell-data">
+                        <span id="spnOrderItemId"> {$T.record.id}</span>
+                </div>
+                <div class="orderitem-cell-data">
+                        {$T.record.productName}
+                </div>
+                <div class="orderitem-cell-data">
+                    <span id="spnPrice">{$T.record.price} </span>
+                        
+                </div>
+                <div class="orderitem-cell-data">
+                            {$T.record.quantity} {$T.record.unitName} <div id="unitId">{$T.record.unitId}</div>
+            </div>
+
+
+                <div class="orderitem-cell-data">
+               <input type="text" class="invQuantity" id="Qty-{$T.record.productId}" placeholder="Enter text here" value="{$T.record.balanceQuantity}">  {$T.record.unitName}
+            </div>
+            <div class="orderitem-cell-data">
+                                {$T.record.invoiceQuantityInFormat} {$T.record.unitName}
+            </div>
+
+            <div class="orderitem-cell-data">
+                              {$T.record.amountInFormat}
+                </div>
+            </div>
+                {#/for}
+
+                <div class="orderitem-cell-data-container-footer">
+                             <div class="preview-footer-body">
+
+            <a href="#" onclick="JavaScript:CreateInvoice()">Submit</a>
+        </div>
+                                    </div>
+                  
+                </div>
+
+        
+
+    </script>
+</div>

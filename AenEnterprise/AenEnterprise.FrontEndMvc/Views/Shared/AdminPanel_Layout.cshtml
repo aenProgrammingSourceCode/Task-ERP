@@ -1,0 +1,269 @@
+﻿
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AEN Enterprise</title>
+    <link href="~/customcss/customform.css" rel="stylesheet" />
+    <link href="~/customcss/dashboard.css" rel="stylesheet" />
+    <link href="~/customcss/pagination.css" rel="stylesheet" />
+    @* <link href="~/customcss/table.css" rel="stylesheet" /> *@
+    <link href="~/customcss/salesordertable.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/34a59c0339.js" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+            integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+            crossorigin="anonymous"></script>
+    <script src="~/script/jquery-jtemplates.js"></script>
+    <script src="~/script/paginationscript.js"></script>
+    <script src="~/script/defaultdateformat.js"></script>
+     
+    <script>
+        $(document).ready(function () {
+            var storedToken = localStorage.getItem('Bearer');
+            redirectToPage(storedToken);
+
+            $(".menu > ul > li").click(function (e) {
+                $(this).siblings().removeClass("active");
+                $(this).toggleClass("active");
+                $(this).find("ul").slideToggle();
+            });
+        })
+
+
+        // function GetUserToken() {
+        //     // AJAX request to fetch data from the API
+        //     $.ajax({
+        //         url: '/api/Authen/GetToken', // Replace with your API endpoint
+        //         type: 'Get',
+        //         contentType: 'application/json;charset-utf-8',
+        //         success: function (token) {
+        //             //console does not show in data
+        //             if (token=null) {
+        //                 window.location.href = "/";
+        //             }
+        //         },
+        //         error: function () {
+        //             alert("Error fetching data from the server.");
+        //         }
+        //     });
+        // }
+        // Function to redirect based on authorization
+        function redirectToPage(token) {
+            // Check if the user is authorized (token exists)
+            if (token && token !== '') {
+                // Redirect to the default page for authorized users
+                window.location.href = "@Url.Action("ApprovedSalesOrders", "Home")";
+            }
+            // else {
+            //     // Handle cases where the user is not authorized or token is missing
+            //     // For instance, show a login form
+            //     window.location.href = "@Url.Action("Index", "Home")";
+            //     // alert("User is not authorized.");
+            // }
+        }
+
+        // On page load, check if the user is already authorized
+       
+
+    </script>
+</head>
+
+<body>
+    <div>
+        <div class="container">
+            <div class="middleBar">
+                <div class="middleLeftBar">
+                    <div class="middleLeftBarTopBar">
+                        <h1> AEN Enterprise</h1>
+                    </div>
+                    <div class="menu">
+                        <h2> Menu</h2>
+                        <ul>
+                            <li>
+                                <a href="#">
+                                    <span class="featureIcon">
+                                        <i class="fa-solid fa-gauge"></i>
+                                    </span>
+                                    <span class="featureIcon">
+                                        Dashboard
+                                    </span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="featureIcon">
+                                        <i class="fa-solid fa-socks"></i>
+                                    </span>
+                                    <span class="featureIcon">
+                                       Management
+                                    </span>
+                                    <span class="featureIcon">
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </span>
+                                </a>
+
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="@Url.Action("UnApproveSalesOrders", "SalesManagement")"><span> Approve Sales Orders </span></a>
+
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("UnApproveInvoice", "SalesManagement")"><span> Approve Invoice</span></a>
+
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("UnApproveDeliveryOrder", "SalesManagement")"><span> Approve Invoice</span></a>
+
+                                    </li>
+                                    
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#">
+                                    <span class="featureIcon">
+                                        <i class="fa-solid fa-socks"></i>
+                                    </span>
+                                    <span class="featureIcon">
+                                        Sales
+                                    </span>
+                                    <span class="featureIcon">
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </span>
+                                </a>
+
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="@Url.Action("ApprovedSalesOrders", "Home")"><span> Orders</span></a>
+                                       
+                                    </li>
+                                    <li>
+                                        <a href="@Url.Action("CreateSalesOrder", "Home")"><span> Create Order</span></a>
+
+                                    </li>
+                                    <li>
+                                        <a href="AdminProduct">
+                                            <span>Invoice</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="AdminProduct">
+                                            <span>DO</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="AdminProduct">
+                                            <span>Dispatch</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+
+                            <li>
+                                <a href="#">
+                                    <span class="featureIcon">
+                                        <i class="fa-solid fa-socks"></i>
+                                    </span>
+                                    <span class="featureIcon">
+                                        Inventory
+                                    </span>
+                                    <span class="featureIcon">
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </span>
+                                </a>
+
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="AdminCategory">
+                                            <span>Category</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="AdminProduct">
+                                            <span>Product</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="#">
+                                    <span class="featureIcon">
+                                        <i class="fa-solid fa-user"></i>
+                                    </span>
+                                    <span class="featureIcon">
+                                       Users
+                                    </span>
+                                    <span class="featureIcon">
+                                        <i class="fa-solid fa-chevron-down"></i>
+                                    </span>
+                                </a>
+
+                                <ul class="submenu">
+                                    <li>
+                                        <a href="AdminCategory">
+                                            <span>User</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="AdminProduct">
+                                            <span>Role</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+
+                            <li>
+                                <a href="#"> Dashboard</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="middleRightBar">
+                    <div class="topBar">
+                        <div class="topBarCenter">
+                            <a href="#" class="topMenu">
+                                <span class="featureTitle">Inventory</span>
+                            </a>
+
+                            <a href="#" class="topMenu">
+                                <span class="featureTitle">Sales</span>
+                            </a>
+
+                            <a href="#" class="topMenu">
+                                <span class="featureTitle">Purchase</span>
+                            </a>
+                            <script>
+                                function LogOut() {
+                                    // AJAX request to fetch data from the API
+                                    $.ajax({
+                                        url: '/api/Authen/logout', // Replace with your API endpoint
+                                        type: 'post',
+                                        contentType: 'application/json;charset-utf-8',
+                                        success: function (token) {
+                                            //console does not show in data
+                                            // window.location.href = "Index";
+                                            window.location.href = "/";
+                                        },
+                                        error: function () {
+                                            alert("Error fetching data from the server.");
+                                        }
+                                    });
+                                }
+                            </script>
+                            <div class="topBarCenter-login"> <span class="login"><i class="fa-regular fa-user"></i> </span><span><a href="#" onclick="Javascript:LogOut()"> Log Out</a></span> </div>
+                        </div>
+
+                    </div>
+                    @RenderBody()
+
+                </div>
+            </div>
+        </div>
+
+       
+    </div>
+</body>
+</html>

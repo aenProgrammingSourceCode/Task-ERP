@@ -1,0 +1,196 @@
+﻿
+@{
+    ViewData["Title"] = "CreateDispatch";
+    Layout = "~/Views/Shared/AdminSales_Layout.cshtml";
+}
+
+<h1>CreateDispatch</h1>
+
+
+<script>
+    $(document).ready(function () {
+        var paths = window.location.pathname;
+        var pt = paths.length;
+        var Id = paths.substring(32, pt);
+        getApprovedDeliveryOrderDetails(Id)
+    });
+       
+
+    function getApprovedDeliveryOrderDetails(Id) {
+        $.ajax({
+            url: '/api/SalesOrder/ApprovedDeliveryOrderDetails?deliveryOrderId=' + Id,
+            type: 'GET',
+            dataType: 'json',
+            contentType: 'application/json;charset-utf-8',
+            success: function (data) {
+                alert(JSON.stringify(data))
+                $("#salesOrderDetailsForEditHtml").setTemplate($("#salesOrderDetailsTemp").html());
+                $("#salesOrderDetailsForEditHtml").processTemplate(data.deliveryOrder);
+            },
+            error: function (er) {
+                var errorSycronim = JSON.stringify(er);
+                alert("eoorr" + errorSycronim);
+            }
+        });
+    }
+
+
+    async function CreateDispatchOrder() {
+        var dispatchArray = [];
+
+        // Iterate over each order item
+        $(".orderitem-cell-data-container").each(function () {
+            var dispatchQuantity = parseFloat($(this).find("#txtNetWeight").val());
+            var vehicalLoadWeight = parseFloat($(this).find("#txtLoadWeight").val());
+            var vehicalEmptyWeight = parseFloat($(this).find("#txtEmptyWeight").val());
+            var deliveryOrderId = parseInt($(this).find(".orderitem-cell-data #spnDeliveryOrderId").text());
+            var deliveryItemId = parseInt($(this).find(".orderitem-cell-data #spnDeliveryItemId").text());
+            var orderItemId = parseInt($(this).find(".orderitem-cell-data #spnOrderItemId").text());
+            
+            var vehicleNo = $(this).find("#txtVehicleNo").val();
+           
+
+            var formRequests = {
+                DeliveryOrderId:deliveryOrderId,
+                VehicalNo:vehicleNo,
+                VehicalEmptyWeight: vehicalEmptyWeight,
+                VehicalLoadWeight: vehicalLoadWeight,
+                DispatchQuantity: dispatchQuantity,
+                DeliveryItemId:deliveryItemId,
+                DeliveryOrderId:deliveryOrderId,
+                OrderItemId: orderItemId
+            };
+
+            dispatchArray.push(formRequests);
+        });
+
+        console.log(dispatchArray);
+
+        try {
+            const response = await fetch('/api/SalesOrder/CreateCustomDispatch', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(dispatchArray)
+            });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok.');
+            }
+
+            const data = await response.json();
+            console.log(data);
+            alert("Success action");
+        } catch (error) {
+            console.error(error.message);
+            alert("Error: " + error.message);
+        }
+    }
+
+</script>
+
+<style>
+    /* Define some CSS4 styles for the textbox */
+    input[type="text"] {
+        padding: 10px;
+        border: 2px solid #3498db;
+        border-radius: 5px;
+        outline: none;
+        font-size: 16px;
+        transition: border-color 0.3s;
+        width: 70%;
+    }
+
+        /* Add some styles for focus state */
+        input[type="text"]:focus {
+            border-color: #2ecc71;
+            /* Add some styles for placeholder text */
+            input [type="text"]::placeholder;
+            color: #7f8c8d;
+        }
+</style>
+
+<div class="salesOrder-container">
+
+    <div id="salesOrderDetailsForEditHtml"></div>
+    <script type="text/html" id="salesOrderDetailsTemp">
+        <div class="salesOrder-item-data">
+            <div class="salesOrder-cell">
+                              {$T.deliveryOrderNo} <div>{$T.id}</div>
+            </div>
+            <div class="salesOrder-cell">
+                                {$T.customerName}
+            </div>
+            <div class="salesOrder-cell">
+                        {$T.createdDate}
+            </div>
+            <div class="salesOrder-cell">
+                       
+            </div>
+        </div>
+
+        <div class="orderItems-container">
+                  <div class="orderitem-cell-header-container">
+                    <div class="orderitem-cell-header">
+                        Item Id
+                    </div>
+                    <div class="orderitem-cell-header">
+                           Product Name
+                    </div>
+                    <div class="orderitem-cell-header">
+                        Price
+                    </div>
+                    <div class="orderitem-cell-header">
+                        vehicle No
+                    </div>
+                    <div class="orderitem-cell-header">
+                          Empty Weight
+                    </div>
+
+                    <div class="orderitem-cell-header">
+                         Load Weight
+                    </div>
+                    <div class="orderitem-cell-header">
+                       Net Weight
+                    </div>
+
+                </div>
+                         {#foreach $T.deliveryOrderItems as deli}
+
+           <div class="orderitem-cell-data-container">
+               <div class="orderitem-cell-data">
+                       <span id="spnDeliveryItemId">{$T.deli.id}</span> 
+                        <span id="spnDeliveryOrderId">{$T.deli.deliveryOrderId}</span>
+                         <span id="spnOrderItemId">{$T.deli.orderItemId}</span>
+               </div>
+               <div class="orderitem-cell-data">
+                       {$T.deli.productName}
+               </div>
+               <div class="orderitem-cell-data">
+                       {$T.deli.price}
+               </div>
+                <div class="orderitem-cell-data">
+                           <input type="text" class="vehicleNo" id="txtVehicleNo" placeholder="Enter text here" value="" />
+               </div>
+                <div class="orderitem-cell-data">
+                           <input type="text" class="emptyWeight" id="txtEmptyWeight" placeholder="Enter text here" value="" /> <span id="spnUnitId">{$T.deli.unitId}</span> {$T.deli.unitName}
+               </div>
+               <div class="orderitem-cell-data">
+                           <input type="text" class="loadWeight" id="txtLoadWeight" placeholder="Enter text here" value="" /> <span id="spnUnitId">{$T.deli.unitId}</span> {$T.deli.unitName}
+               </div>
+               <div class="orderitem-cell-data">
+                           <input type="text" class="netWeight" id="txtNetWeight" placeholder="Enter text here" value="{$T.deli.balanceQuantity}" /> <span id="spnUnitId">{$T.deli.unitId}</span> {$T.deli.unitName}
+               </div>
+               
+           </div>
+               {#/for}
+
+                <div class="orderitem-cell-data-container-footer">
+                    <a href="#" onclick="Javascript:CreateDispatchOrder()" class="dispatch-button">Create</a>
+                </div>
+
+        </div>
+
+    </script>
+</div>

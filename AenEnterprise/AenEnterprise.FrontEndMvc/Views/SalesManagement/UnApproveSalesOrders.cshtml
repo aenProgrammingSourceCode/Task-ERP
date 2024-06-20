@@ -1,0 +1,276 @@
+﻿
+@{
+    ViewData["Title"] = "UnApproveSalesOrders";
+    Layout = "~/Views/Shared/AdminSales_Layout.cshtml";
+}
+ 
+
+
+<script>
+    $(document).ready(function () {
+        $("#checkedAll").change(function () {
+            if (this.checked) {
+                $(".checkSingle").each(function () {
+                    this.checked = true;
+                })
+            } else {
+                $(".checkSingle").each(function () {
+                    this.checked = false;
+                })
+            }
+        });
+        $(".checkSingle").click(function () {
+            if ($(this).is(":checked")) {
+                var isAllChecked = 0;
+                $(".checkSingle").each(function () {
+                    if (!this.checked)
+                        isAllChecked = 1;
+                })
+                if (isAllChecked == 0) { $("#checkedAll").prop("checked", true); }
+            }
+            else {
+                $("#checkedAll").prop("checked", false);
+            }
+        });
+        setDefaultDates();
+        getSalesOrders(1,6);
+        
+
+        // fetchPaginationLinks(10, currentPage = 1, pageSize = 6);
+         
+    });
+    async function getSalesOrders(pageNumber, pageSize) {
+        const dateFromInput = new Date(document.getElementById('dateFromInput').value).toISOString();
+        const dateToInput = new Date(document.getElementById('dateToInput').value).toISOString();
+        const criteriaName = document.getElementById('txtCriteriaName').value;
+        await GetAllSalesOrder(pageNumber, pageSize, dateFromInput, dateToInput, criteriaName);
+    }
+    async function GetAllSalesOrder(pageNumber, pageSize, dateFrom, dateTo, criteriaName) {
+        try {
+            var jsonData = {
+                DateFrom: dateFrom,
+                DateTo: dateTo,
+                PageNumber: pageNumber,
+                PageSize: pageSize,
+                CriteriaName: criteriaName
+            }
+            var url ='SalesOrder/GetAllUnApprovedSalesOrders';
+            var salesResponse = await getAllDataWithParameter(url,jsonData);
+            
+            $(".totalItemsFound").empty();
+            $("#salesOrderElement").setTemplate($("#salesOrdersTemp").html());
+            $("#salesOrderElement").processTemplate(salesResponse);
+            paginationCallBack(salesResponse.totalPages, pageNumber);
+            showpage(pageNumber, salesResponse.totalPages);
+            $(".totalItemsFound").append(JSON.stringify('Items found-' + salesResponse.totalCount + '/' + salesResponse.totalPages + ' Pages'));
+            
+        } catch (error) {
+            console.error("Error fetching data from the server: " + error.message);
+        }
+    }
+    
+
+    async function ChangeApprovalStatusByChecked() {
+        var chkChecked = $("input[name='checkSingle']:checked").length;
+        if (chkChecked >= 1) {
+            var statusId = $("#ddlStatusId").val(); // Retrieve the selected approval ID
+            var postArr = [];
+
+            $("input[name='checkSingle']:checked").each(function () {
+                var orderItemId = $(this).val();
+                var salesOrderId = $(this).closest(".orderitem-cell-data-container").find("#spnSalesOrderId").text();
+                var formrequests = {
+                    StatusId: statusId,
+                    SalesOrderId: salesOrderId,
+                    OrderItemId: orderItemId
+                };
+
+                postArr.push(formrequests);
+            });
+
+            var url = 'SalesOrder/ApproveOrderItems';
+            var success = async function (datas) {
+                const pageSize = 6;
+                const currentPage = parseInt($('.page-link.active').text().trim());
+                getSalesOrders(currentPage, 6); // Ensure the page size is set as desired (e.g., 6)
+            };
+        }
+       await postArrayDataWithParameter(url, postArr, success)
+    }
+
+    // // Function to fetch pagination links via AJAX
+    // function fetchPaginationLinks(totalPages, currentPage = 1, pageSize = 6) {
+    //     $.ajax({
+    //         url: `/api/SalesOrder/GetPaginationLinks?totalPages=${totalPages}&currentPage=${currentPage}&pageSize=${pageSize}`,
+    //         method: 'GET',
+    //         success: function (response) {
+    //             // Assuming you have a div with class "pagination-container" to display pagination links
+    //             $('.pagination-container').html(response);
+    //         },
+    //         error: function (error) {
+    //             console.error('Error fetching pagination links:', error);
+    //         }
+    //     });
+    // }
+
+    window.onload = function () {
+        var elements = document.getElementsByClassName('orderitem-cell-data');
+
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].addEventListener('input', function () {
+                // Handle the input event, for example, log the updated content to the console
+                console.log('Updated Content:', this.innerHTML);
+            });
+        }
+    };
+
+
+    
+</script>
+ 
+<script defer>
+    window.onload = function () {
+        var elements = document.getElementsByClassName('orderitem-cell-data');
+
+        for (var i = 0; i < elements.length; i++) {
+            elements[i].addEventListener('input', function () {
+                // Handle the input event, for example, log the updated content to the console
+                console.log('Updated Content:', this.innerHTML);
+            });
+        }
+    };
+</script>
+
+
+<div class="salesOrder-container">
+    <div class="criteria-container">
+        <input type="date" id="dateFromInput">
+        <input type="date" id="dateToInput">
+        <input type="search" id="txtCriteriaName" placeholder="Search Order Items" />
+        <a href="#" onclick="Javascript: getSalesOrders(1,6)" class="search-button">
+            <i class="fas fa-search"></i> Search
+        </a>
+    </div>
+
+    <div class="pagination-container">
+
+    </div>
+    <div class="salesOrder-item-header-top">
+        <div class="approval-criteria">
+            <select id="ddlStatusId">
+                <option value="2">Approve</option>
+                <option value="4">Reject</option>
+            </select>
+            <input type="submit" onclick="Javascript:ChangeApprovalStatusByChecked()" value="Change Status" />
+        </div>
+    </div>
+
+
+
+
+    <div class="salesOrder-item-content">
+        <div class="salesOrder-cell-marge-2">
+             <div class="totalItemsFound"></div>
+        </div>
+        <div class="salesOrder-cell-content">
+          
+        </div>
+        <div class="salesOrder-cell-content">
+          
+        </div>
+        <div class="salesOrder-cell-content">
+            <input type="checkbox" name="checkedAll" class="input-group-sm" id="checkedAll" /> Select All
+        </div>
+    </div>
+
+    <div id="salesOrderElement"></div>
+    <script type="text/html" id="salesOrdersTemp">
+       
+     {#foreach $T.salesOrders as record}
+        <div class="salesOrder-item-data">
+            <div class="salesOrder-cell">
+               <a href="@Url.Action("GetSalesOrderById", "SalesOrderReport")?salesOrderId={$T.record.id}">{$T.record.salesOrderNo}</a>
+            </div>
+            <div class="salesOrder-cell">
+                        {$T.record.customerName}
+                       
+            </div>
+            <div class="salesOrder-cell">
+                        {$T.record.orderDateInFormat}
+            </div>
+            <div class="salesOrder-cell">
+             @*     <a href="@Url.Action("CreateInvoice", "SalesManagement")/{$T.record.id}">Create Invoice</a><br> *@
+            </div>
+            <div class="salesOrder-cell">
+                   
+            </div>
+        </div>
+
+        <div class="orderItems-container">
+            <div class="orderitem-cell-header-container">
+                    <div class="orderitem-cell-header">
+                        Item Id
+                    </div>
+                    <div class="orderitem-cell-header">
+                           Product Name
+                    </div>
+                    <div class="orderitem-cell-header">
+                        Price
+                    </div>
+                    <div class="orderitem-cell-header">
+                           Quantity
+                    </div>
+                    <div class="orderitem-cell-header">
+                        Invoice Quantity
+                    </div>
+                    <div class="orderitem-cell-header">
+                         Balance Quantity
+                    </div>
+                    <div class="orderitem-cell-header">
+                       Amount
+                    </div>
+                    <div class="orderitem-cell-header">
+                      
+                    </div>
+
+                </div>
+                 {#foreach $T.record.orderItems as oi}
+
+            <div class="orderitem-cell-data-container">
+                <div class="orderitem-cell-data">
+                       <span id="spnOrderItemid">{$T.oi.id}</span>  
+                       <span id="spnSalesOrderId">{$T.oi.salesOrderId}</span>
+                </div>
+                <div class="orderitem-cell-data">
+                        {$T.oi.productName}
+                </div>
+                <div class="orderitem-cell-data">
+                        {$T.oi.price}
+                </div>
+                <div class="orderitem-cell-data">
+                            {$T.oi.quantityInFormat} {$T.oi.unitName}
+                </div>
+                <div class="orderitem-cell-data">
+                        {$T.oi.invoiceQuantityInFormat} {$T.oi.unitName}
+                </div>
+                <div class="orderitem-cell-data">
+                        {$T.oi.balanceQuantityInFormat} {$T.oi.unitName}
+                </div>
+                <div class="orderitem-cell-data">
+                          {$T.oi.amountInFormat}
+                </div>
+                <div class="orderitem-cell-data">
+                       <input type="checkbox" name="checkSingle" value="{$T.oi.id}" class="checkSingle" id="chkSingle" />
+                </div>
+            </div>
+                {#/for}
+        </div>
+                  {#/for}
+    </script>
+</div>
+<div class="pagebar-container">
+     <div class="totalItemsFound"></div>
+     <div class="paging">
+        
+    </div>
+</div>

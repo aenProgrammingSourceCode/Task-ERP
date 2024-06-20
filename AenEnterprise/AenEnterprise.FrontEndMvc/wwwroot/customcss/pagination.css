@@ -1,0 +1,44 @@
+﻿.pagebar-container {
+    display: flex;
+    flex-direction: row;
+    width: 100%;
+    height: 70px;
+    border: 1px solid cornflowerblue;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+}
+
+.paging {
+    border: 1px solid dashed;
+    width: 40%;
+    height: 30px;
+    padding: 10px;
+    text-align: center;
+    justify-content: center;
+}
+
+    .paging a {
+        color: mediumslateblue;
+        margin: 0 5px; /* Adjust the margin as needed */
+        font-weight:normal;
+    }
+
+.page-link {
+    /* Styles for non-active page numbers */
+    color: #000;
+    text-decoration: none;
+}
+
+    .page-link.active {
+        /* Styles for the active page number */
+        color: #fff;
+        background-color: #007bff;
+        /* Any other styles to highlight the active page */
+    }
+     
+
+    .paging .hidden {
+        display: none;
+    }
+ 

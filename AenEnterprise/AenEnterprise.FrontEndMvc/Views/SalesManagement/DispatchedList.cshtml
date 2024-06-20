@@ -1,0 +1,227 @@
+﻿
+@{
+    ViewData["Title"] = "DispatchedList";
+    Layout = "~/Views/Shared/AdminSales_Layout.cshtml";
+}
+
+<h1>DispatchedList</h1>
+
+ <div id="navbar">
+    <ul id="nav"> <li><a style="font:400" href="#" title="Accounts">Accounts</a>
+                    <ul>
+                        
+                        <li><a href="ChartOfAccountRpt.aspx" title="Chart of Accounts">View Chart of Accounts</a></li>
+                        <li><a href="BankAccountSetup.aspx" title="Bank Account Setup">Bank Account Setup</a></li>
+                        <li><a href="AC_CheckBookRegister.aspx" title="New Cheque Entry">New Cheque Entry</a></li>
+                        <li><a href="AC_BankStatementEntry.aspx" title="Bank Statement Entry">Bank Statement Entry</a></li>
+                        <li><a href="AC_BankReconceliation.aspx" title="Bank Reconceliation">Bank Reconceliation</a></li>
+                        <li><a href="SALE_CustomerList.aspx" title="Customer List">Customer List</a></li>
+                        <li><a href="SALE_SupplierList.aspx" title="Customer List">Supplier List</a></li> 
+                        <li><a href="AC_InterCompanyPayableReceivableClosingBalance.aspx" title="Inter-Company Account Status">Inter-Company Account Status</a></li>
+                        <li><a href="AC_GetPaymentByInvoice.aspx" title="Create Voucher by Invoice">Sales - Receiveable</a></li>
+                        <li><a href="frmVoucher.aspx" title="Create Voucher">Voucher</a></li>
+                        <li><a href="LedgerPosting.aspx" title="Posting to ledger">Ledger Posting</a></li>
+                        <li><a href="AC_BalanceSheetAccounts.aspx" title="Balance Sheet">Balance Sheet</a></li>
+                        <li><a href="AC_CostCenter.aspx" title="Cost Center">Add Cost/Income Center</a></li>
+                        <li><a href="AC_CreateLC.aspx" title="Create New LC">Create New LC</a></li>
+                        <li><a href="AC_EntryLCExpenses.aspx" title="LC Expenses">LC Expenses</a></li>
+                        <li><a href="AC_Vendor_T.aspx" title="Add New Supplier">Add New Supplier</a></li>
+                        <li><a href="AC_YearClosingProcess.aspx" title="Year Closing">Year Closing</a></li>
+                        <li><a href="SalesSummaryReport.aspx" title="Sales Summary Report">Sales Reports</a></li>
+                        
+                    </ul>
+                </li> 
+  
+                <li><a href="#" title="Purchase">Fixed Assets</a>
+                    <ul>
+                    <li><a href="AssetGroup_T.aspx" title="Create Asset Group">Create Asset Group</a></li>
+                    <li><a href="AC_AssetRegistrationMaster.aspx" title="Create Asset Code">Create Asset Code</a></li>
+                    <li><a href="AC_AssetRegisterDetails.aspx" title="Register Asset">Register Asset</a></li>
+                    <li><a href="AC_AssetIssueDetails_T.aspx" title="Issue Asset">Issue Asset</a></li>
+                    </ul>
+                </li> 
+                
+                 <li><a href="#" title="Purchase">Purchase</a>
+                    <ul>
+                    <li><a href="PURCHASE_IndentPeriod_T.aspx" title="Indent Period">Indent Period</a></li>
+                    <li><a href="PURCHASE_IndentMaster_T.aspx" title="Create Indent">Create Indent</a></li>
+                    <li><a href="PURCHASE_IndentMaster_TApproval.aspx" title="Indent Approval">Indent Approval</a></li>
+                    
+                    <li><a href="Indent_Dashboard.aspx" title="Create RFI/RFQ">Create RFI/RFQ</a></li>
+                    <li><a href="PURCHASE_RFIRFQMaster_TDashBoard.aspx" title="Create Quotation">Create Quotation</a></li>
+                    <li><a href="PURCHASE_QuotationEvaluation_T.aspx" title="Quotation Evaluation">Quotation Evaluation</a></li>
+                    <li><a href="PURCHASE_EvaluationBoard.aspx" title="Quotation Evaluation Board">Quotation Evaluation Board</a></li>
+                    <li><a href="PURCHASEQuotation_Dashboard.aspx" title="Create Purchase Order">Create Purchase Order</a></li>
+                    <li><a href="PURCHASE_OrderMasterDashBoard.aspx" title="Purchase Receive">Purchase Receive</a></li>
+                    
+                    <li><a href="PURCHASE_ProductSpecs_T.aspx" title="Create Product Spaces">Create Product Spaces</a></li>
+                    <li><a href="PURCHASE_EvaluationTeamGroup_T.aspx" title="Create Purchase Team Group">Create Purchase Team Group</a></li>
+                    <li><a href="PURCHASE_TeamMembers_T.aspx" title="Create Purchase Team Group">Create Purchase Team</a></li>
+                    <li><a href="AC_EmployeeIndentSetup.aspx" title="Employee Indent Setup">Employee Indent Setup</a></li>
+                    <li><a href="AC_Department_T.aspx" title="Create Department">Create Department</a></li>
+                    <li><a href="ProductDepartmentAssociation_T.aspx" title="Product Association">Product Association</a></li>
+                    <li><a href="AC_Budget_T.aspx" title="Create Budget">Create Budget</a></li>
+                    
+                    </ul>
+                </li> 
+                
+                
+                 <li><a href="#" title="Inventory">Inventory</a>
+                    <ul>
+                        <li><a href="#" title="Product">Product</a>
+                            <ul>
+                                <li><a href="Product_T.aspx" title="Product">Add New Product</a></li>
+                                <li><a href="SALE_InterCompanyProduct.aspx" title="Product">Add New Product</a></li>
+                                <li><a href="Product_Unit_T.aspx" title="Product Unit">Product Unit</a></li>
+                                <li><a href="ProductCategory_T.aspx" title="Product Category">Product Category</a></li>
+                                <li><a href="InterCompanyProductCategory.aspx" title="Product Category">Product Category</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="INV_Warehouse_T.aspx" title="Create A New Location">Create A New Location</a></li>
+                        <li><a href="POS_PurchaseReceive.aspx" title="Create A New Location">Purchase Receive</a></li>
+                        <li><a href="CostCenterWise_InitialInventory.aspx" title="Cost Centerwise Initial Inventory">Cost Centerwise Initial Inventory</a></li>
+                        <li><a href="INV_InitialInventory.aspx" title="Initial Inventory">Initial Inventory</a></li>
+                        <li><a href="Inv_InventoryTransfer.aspx" title="Receiving Condition">Inventory Tarnsfer</a></li>
+                        <li><a href="INV_PhysicalInventory.aspx" title="Physical Inventory">Physical Inventory</a></li>
+                        <li><a href="INV_AddNewProductToInventory.aspx" title="Add New Product In Inventory">Add New Product In Inventory</a></li>
+                        
+                    </ul>
+                </li> 
+                 <li><a href="#" title="Sale">Sale</a>
+                    <ul>
+                  <li><a href="SALE_DistributionCustomer_T.aspx" title="New Customer">New Customer</a></li> 
+                      <li><a href="SALE_InterCompanyCustomer.aspx" title="New Customer">New Customer</a></li> 
+                     <li><a href="SALE_CustomerList.aspx" title="Customer List">Customer List</a></li>
+                    <li><a href="SALE_CustomerWiseTransactions.aspx" title="Customerwise Transactions">Customerwise Transactions</a></li>
+                     
+                      <li><a href="SALE_SalesOrderMaster_T.aspx" title="Sales Order">Sales Order</a></li>
+                            <li><a href="ProductSales.aspx" title="Product Sales">Sale (Create Invoice)</a></li>
+                            <li><a href="SALE_SalesMasterList.aspx" title="Sales Order">Issue DO</a></li>
+                    <li><a href="SALE_ProductSaleMaster.aspx" title="Product Sales">Sale (Create Invoice)</a></li> 
+                     
+                     <li><a href="SALE_InterCompany_DO.aspx" title="Inter-Comapny DO">Inter-Comapny DO</a></li>
+                    
+                    <li><a href="Quotation.aspx" title="Sales Delivery">Quotation</a></li>
+                    <li><a href="SALE_SalesStatusReport.aspx" title="Sales Status Report">Sales Order Status</a></li>
+                    <li><a href="SALE_SalesArea_T.aspx" title="Sales Area">Sales Area</a></li>
+                    <li><a href=" SALE_SRAllocationWithDealer.aspx" title="SR Allocation With Dealer">SR Allocation With Dealer</a></li>
+                     <li><a href=" MKT_SalesMobNo_T.aspx" title=" Assign SR & Dealer">Assign SR & Dealer</a></li>
+                     <li><a href=" SALE_Supplier_ProductAssociation_T.aspx" title=" Association With supplier & Product"> Association With supplier & Product</a></li>
+                       <li><a href=" Employee_SalesAreaAssociation_T.aspx" title=" Association With Sales Area"> Association With Sales Area</a></li>
+                       <li><a href="SALE_Customer_ProductSetup_T.aspx" title="Product Setupt">Product Setup</a></li>
+                      <li><a href="#" title="Product">Reports</a>
+                              <ul>
+                                        <li><a href=" VIEW_Reporting.aspx" title=" Products Report"> Products Report</a></li>
+                              </ul>
+                      </li>
+                    <li><a href="SalesSummaryReport.aspx" title="Sales Summary Report">Sales Reports</a></li>
+                    </ul>
+                </li>
+                <li><a href="SALE_DeliveryOrdersList.aspx" title="Sales Delivery">Dispatch</a></li>                <li><a href="#" title="Management">Management</a>
+                    <ul>
+                    <li><a href="MGM_SummaryApprovalDashboard.aspx" title="Sales Order">Summary Approval Dashboard</a></li>
+                    <li><a href="SalesOrderApproval.aspx" title="Sales Order">Sales Order Approval</a></li>
+                    <li><a href="SALE_SalesApproval.aspx" title="Sales Order">Invoice Approval</a></li>
+                    <li><a href="SALE_DeliveryOrderApproval.aspx" title="Sales Order">DO Approval</a></li>
+                    <li><a href="AC_ChequeApprovalDashboard.aspx" title="Cheque Approval Dashboard">Cheque Approval Dashboard</a></li>
+                    <li><a href="AC_ChequeHandOverDashboard.aspx" title="Cheque Handover Dashboard">Cheque Handover Dashboard</a></li>
+                    <li><a href="PURCHASE_OrderApprovalDashboard.aspx" title="Purchase Approval">Purchase Order Approval</a></li>
+                    <li><a href="INV_ConfirmInventoryInitialization.aspx" title="Confirm Inventory Initialization">Confirm Inventory Initialization</a></li>
+                    <li><a href="INV_WarehouseAccountSetup.aspx" title="Inventory Account Setup">Inventory Account Setup</a></li>
+                    <li><a href="INV_MetalCosting.aspx" title="Purchase Ship And Costing">Purchase Of Ship And Costing</a></li>
+                    <li><a href="SALE_InvoicesToConfirm.aspx" title="Confirm Invoices">Confirm Invoice Dispatch</a></li>
+                    <li><a href="SALE_UpdateCustomerCreditLimit.aspx" title="Set Customer Credit Limit">Set Customer Credit Limit</a></li>
+                    <li><a href="SALE_CurrentDispatchList.aspx" title="Current Dispatch List">Current Dispatch List</a></li>
+                    <li><a href="AC_ChartOfAccount_T.aspx" title="Create an Account">Create An Account</a></li>
+                    </ul>
+                    
+                </li>
+                <li>
+                    <a href="#" title="User Management">User Management</a>
+                    <ul>
+                        <li><a href="AUTH_User_T.aspx" title="Create User">Create User</a></li>
+                        <li><a href="AUTH_UserRoleAssign_T.aspx" title="User Role Assignment">User Role Assignment</a></li>
+                    </ul>                
+                </li>
+              <li>
+                    <a href="#" title="HR Management">HR Management</a>
+                    <ul>
+                        <li><a href="Employee_BasicInfo.aspx" title="Create Employee">Create New Employee</a></li>
+                    </ul>                
+                </li>
+                <li><a href="#" title="HR & Payroll">HR & Payroll</a>
+                <ul>
+                    <li><a href="EMPLOYEE_BasicInfo_T.aspx" title="Enter Employee Information">Enter Employee Information</a></li>
+                    <li><a href="EMPLOYEE_EmploymentRegister_T.aspx" title="Register Employee">Register Employee</a></li>
+                    <li><a href="EMPLOYEE_Experiance_Skill.aspx" title="Employee Experiance & Skill">Employee Experiance & Skill</a></li>
+                    <li><a href="EMPLOYEE_TerminationDashBoard.aspx" title="Termination">Termination Dashboard</a></li>
+                    
+                    
+                    <li><a href="#" title="New Customer">Payroll Setup</a>
+                       <ul>
+                        <li><a href="PAYROLL_AttendencePolicy_T.aspx" title="Attendence Policy Setup">Attendence Policy Setup</a></li>
+                        <li><a href="PAYROLL_PayScaleSetup.aspx" title="Customer List">Employee Pay-Scale Setup</a></li>
+                        <li><a href="EMPLOYEE_SetEmployeePerformanceFactor.aspx" title="">Employee Performance & Characteristics Factor Setup</a></li>
+                        
+                       </ul> 
+                    </li>
+                    <li><a href="PAYROLL_EMPLOYEE_LeaveApplication.aspx" title="Leave Application">Leave Application</a></li>
+                    <li><a href="PAYROLL_EMPLOYEE_LeaveApprovalDashboard.aspx" title="Leave Approval">Leave Approval</a></li>
+                    <li><a href="PAYROLL_LeaveEnCash_T.aspx" title="Leave EnCash">Leave EnCash</a></li>
+                    <li><a href="PAYROLL_LoanApplication_T.aspx" title="Receive Purchase">Salary Advance Application</a></li>
+                    <li><a href="PAYROLL_LoanApprovalDashBoard_T.aspx" title="Receive Purchase">Approve Salary Advance</a></li>
+                    <li><a href="EMPLOYEE_EmployeeEvaluationEntry.aspx" title="Employee Evaluation Entry">Employee Evaluation Entry</a></li>
+                    
+                    
+                    <li><a href="PAYROLL_IncrementInfo_T.aspx" title="Employee Promotion">Employee Promotion</a></li>
+                    <li><a href="CriteriaWiseEmployeeSearch.aspx" title="Categorized Employee">Categorized Employee</a></li>
+                    <li><a href="EMPLOYEE_TransferInfo_T.aspx" title="Transfer Employee">Transfer Employee</a></li>
+                    <li><a href="PAYROLL_PaySlip_T.aspx" title="Generate Pay Slip">Generate Pay Slip</a></li>
+                    
+                    <li><a href="PAYROLL_EmployeeSalary_Calculation_T.aspx" title="Employee Salary Calculation">Employee Salary Calculation</a></li>
+                    
+                    <li><a href="#" title="HR Reports">HR Reports</a>
+                        <ul>
+                            <li><a href="LocationTransferInReportViewer.aspx" title="Staff Transfer IN (Location)">Staff Transfer IN (Location)</a></li>
+                            <li><a href="LocationTransferOutReportViewer.aspx" title="Staff Transfer OUT (Location)">Staff Transfer OUT (Location)</a></li>
+                            <li><a href="SectionTransferReportViewer.aspx" title="Staff Section Transfer">Staff Section Transfer</a></li>
+                            <li><a href="LeaveEarnedAndTakenReportViewer.aspx" title="Staff Section Transfer">Leave Earned/Taken Report</a></li>
+                            <li><a href="PAYROLL_ListOfDepartment.aspx" title="Staff Section Transfer">Department List Report</a></li>
+                            <li><a href="#">-------Staff List--------</a></li>
+                            <li><a href="ViewEmployeeReport.aspx" title="Employee Profile">Employee Specific Report</a></li>
+                            <li><a href="PAYROLL_ListOfStuff.aspx" title="Staff list">Staff list</a></li>
+                            <li><a href="ViewSeniorityWiseStaffList.aspx" title="Seniority wise Staff list">Seniority wise Staff list</a></li>
+                            <li><a href="ViewAgeWiseStaffList.aspx" title="Age wise Staff list">Age wise Staff list</a></li>
+                            <li><a href="ViewQualificationWiseStaffList.aspx" title="Qualification wise Staff list">Qualification wise Staff list</a></li>
+                            <li><a href="#">-------Attendence Reports--------</a></li>
+                            <li><a href="PAYROLL_MonthlyAttendenceReport.aspx" title="Monthly Attendence Summary">Monthly Attendence Summary</a></li>
+                            <li><a href="PAYROLL_DailyAttendance_T.aspx" title="Daily Attendance">Daily Attendance Report</a></li>
+                            <li><a href="PAYROLL_Daily_Overtime_T.aspx" title="Daily OT Report">Daily OT Report</a></li>
+                            
+                        </ul>
+                    </li>
+                    <li><a href="EMPLOYEE_LoginUser_T.aspx" title="Employee Login">Employee Login</a></li>
+                    
+                </ul>
+                </li>
+                <li>
+                    <a href="#" title="Management Reports">Reports</a>
+                    <ul>
+                        <li><a href="AC_BankReports.aspx" title="Bank Reports">Bank Report</a></li>
+                        <li><a href="CashExpenditureReport.aspx" title="Cash Expenditure Reports">Cash Expenditure Report</a></li>
+                        <li><a href="MGMInventoryReporting.aspx" title="Inventory Reports">Inventory Reports</a></li>
+                        <li><a href="SALE_ProductAverageSalesPrice.aspx" title="Product's Average Price">Product's Average Price</a></li>
+                        <li><a href="AC_BankInterestProjection.aspx" title="Bank Interest Projection">Bank Interest Projection</a></li>
+                        <li><a href="SalesSummaryReport.aspx" title="Sales Summary Report">Sales Reports</a></li>
+                        
+                    </ul>
+                
+                </li>
+            
+    
+//}    
+    
+        <li><a href="SummaryReports.aspx" title="Summary Reports">Summary Reports</a></li>
+        <li><a href="Signout.aspx" title="Sign Out">Sign Out</a></li>
+    </ul>
+  </div>

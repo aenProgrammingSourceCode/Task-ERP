@@ -1,0 +1,174 @@
+﻿
+@{
+    ViewData["Title"] = "CreateDeliveryOrder";
+    Layout = "~/Views/Shared/AdminSales_Layout.cshtml";
+}
+
+<h1>CreateDeliveryOrder</h1>
+
+
+
+<script>
+    $(document).ready(function () {
+        var paths = window.location.pathname;
+        var pt = paths.length;
+        var Id = paths.substring(37, pt);
+        getApprovedInvoiceDetails(Id)
+
+    })
+    
+    function getApprovedInvoiceDetails(Id) {
+        $.ajax({
+            url: '/api/SalesOrder/ApprovedInvoiceDetails?invoiceId=' + Id,
+            type: 'GET',
+            dataType: 'json',
+            contentType: 'application/json;charset-utf-8',
+            success: function (data) {
+                alert(JSON.stringify(data));
+                $("#salesOrderDetailsForEditHtml").setTemplate($("#salesOrderDetailsTemp").html());
+                $("#salesOrderDetailsForEditHtml").processTemplate(data.invoice);
+            },
+            error: function (er) {
+                var errorSycronim = JSON.stringify(er);
+                alert("eoorr" + errorSycronim);
+            }
+        });
+    }
+    
+
+    async function CreateDeliveryOrder() {
+    var deliveryOrderArray = [];
+
+    // Iterate over each order item
+    $(".orderitem-cell-data-container").each(function () {
+        var deliveryOrderQuantity = parseFloat($(this).find(".invQuantity").val());
+            var invoiceItemId = parseInt($(this).find(".orderitem-cell-data #spnInvoiceItemId").text());
+            var invoiceId = parseInt($(this).find(".orderitem-cell-data #spnInvoiceId").text());
+            var orderItemId = parseInt($(this).find(".orderitem-cell-data #spnOrderItemId").text());
+        var formRequests = {
+                DeliveryQuantity: deliveryOrderQuantity,
+                InvoiceId: invoiceId,
+                OrderItemId:orderItemId,
+                InvoiceItemId: invoiceItemId
+        };
+
+        deliveryOrderArray.push(formRequests);
+    });
+
+    console.log(deliveryOrderArray);
+
+    try {
+            const response = await fetch('/api/SalesOrder/CreateCustomDO', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(deliveryOrderArray)
+        });
+
+        if (!response.ok) {
+            throw new Error('Network response was not ok.');
+        }
+
+        const data = await response.json();
+        console.log(data);
+        alert("Success action");
+    } catch (error) {
+        console.error(error.message);
+        alert("Error: " + error.message);
+    }
+}
+</script>
+
+<style>
+    /* Define some CSS4 styles for the textbox */
+    input[type="text"] {
+        padding: 10px;
+        border: 2px solid #3498db;
+        border-radius: 5px;
+        outline: none;
+        font-size: 16px;
+        transition: border-color 0.3s;
+        width: 70%;
+    }
+
+        /* Add some styles for focus state */
+        input[type="text"]:focus {
+            border-color: #2ecc71;
+            /* Add some styles for placeholder text */
+            input [type="text"]::placeholder;
+        color: #7f8c8d;
+        }
+</style>
+
+<div class="salesOrder-container">
+
+    <div id="salesOrderDetailsForEditHtml"></div>
+    <script type="text/html" id="salesOrderDetailsTemp">
+        <div class="salesOrder-item-data">
+            <div class="salesOrder-cell">
+                <span id="spnInvoiceId">{$T.id}</span>
+                              {$T.invoiceNo}
+            </div>
+            <div class="salesOrder-cell">
+                                {$T.customerName}
+            </div>
+            <div class="salesOrder-cell">
+                        {$T.createdDate}
+            </div>
+            <div class="salesOrder-cell">
+                        Delete
+            </div>
+        </div>
+
+        <div class="orderItems-container">
+                  <div class="orderitem-cell-header-container">
+                    <div class="orderitem-cell-header">
+                        Item Id
+                    </div>
+                    <div class="orderitem-cell-header">
+                           Product Name
+                    </div>
+                    <div class="orderitem-cell-header">
+                        Price
+                    </div>
+                    <div class="orderitem-cell-header">
+                       Due Quantity
+                    </div>
+                    <div class="orderitem-cell-header">
+                       Amount.(Tk)
+                    </div>
+
+                </div>
+                  {#foreach $T.invoiceItems as inv}
+
+            <div class="orderitem-cell-data-container">
+                <div class="orderitem-cell-data">
+                     <span id="spnInvoiceItemId">{$T.inv.id}</span>
+                        <span id="spnInvoiceId">{$T.inv.invoiceId}</span>
+                           <span id="spnOrderItemId">{$T.inv.orderItemId}</span>
+                </div>
+                <div class="orderitem-cell-data">
+                        {$T.inv.productName}
+                </div>
+                <div class="orderitem-cell-data">
+                       <span id="spnPrice">{$T.inv.price}</span>
+                </div>
+                <div class="orderitem-cell-data">
+                     <input type="text" class="invQuantity" id="Qty-{$T.inv.productId}" placeholder="Enter text here" value="{$T.inv.balanceQuantity}" /> <span id="spnUnitId">{$T.inv.unitId}</span> {$T.inv.unitName}
+                </div>
+                <div class="orderitem-cell-data">
+                        {$T.inv.invoiceAmount  }
+                </div>
+                
+            </div>
+                {#/for}
+
+                <div class="orderitem-cell-data-container-footer">
+                    <a href="@Url.Action("GetDeliveryOrderBySalesOrderId", "SalesOrderReport")?salesOrderId={$T.id}" id="btnSubmit" onclick="Javascript:CreateDeliveryOrder()" target="_blank" style="font-size:medium; margin:5px">Submit</a>
+                </div>
+
+        </div>
+
+    </script>
+</div>

@@ -1,0 +1,150 @@
+﻿
+@{
+    ViewData["Title"] = "Users";
+    Layout = "~/Views/Shared/AdminPanel_Layout.cshtml";
+}
+
+<h1>Users</h1>
+
+<script>
+
+    $(document).ready(function () {
+        /*GetUserByUserId(1)*/
+         
+    });
+
+    function GetUserByUserId(Id) {
+        // AJAX request to fetch data from the API
+
+        var id = Id;
+
+        $.ajax({
+            url: '/api/Authen/GetUser/' + id, // Replace with your API endpoint
+            type: 'GET',
+            cache: false,
+            async: true,
+            dataType: 'json',
+            contentType: 'application/json;charset-utf-8',
+            // data: JSON.stringify(jsonData),
+            success: function (data) {
+                alert(JSON.stringify(data));
+
+
+                // $.each(data.categories, function (index, item) {
+                //     console.log(item);
+                //     var tbodys = $("#catlist");
+                //     var rowItems = $("<tr>");
+
+                //     var listItem = $('<td>'
+                //         + item.id + '</td>'
+                //         + '<td>' + item.name + '</td>'
+                //         + '<td><a href="#" id="btnEditCategory" onclick="JavaScript:getCategoryDetailsForEdit(' + item.id + ')" class="formEdit" ><i class="fa-regular fa-pen-to-square"></i></a > </td>'
+                //         + '<td><input type="checkbox" value = "' + item.id + '" id = "chkCategory" name = "category" class= "checkSingle" /></td>'
+                //         + '<td><a href="#" class="glyphicon glyphicon-trash" onclick="JavaScript: DeleteCategory()"><i class="fa-regular fa-trash-can"></i></a></td>');
+
+                //     rowItems.append(listItem);
+                //     tbodys.append(rowItems);
+
+            },
+            error: function () {
+                alert("Error fetching data from the server.");
+            }
+        });
+    }
+
+    function GetUserByUserName() {
+        // AJAX request to fetch data from the API
+
+        var uName = $("#txtUserName").val();
+
+        $.ajax({
+            url: '/api/Authen/GetUserName/' + uName, // Replace with your API endpoint
+            type: 'GET',
+            cache: false,
+            async: true,
+            dataType: 'json',
+            contentType: 'application/json;charset-utf-8',
+            // data: JSON.stringify(jsonData),
+            success: function (data) {
+
+                var token = data;
+
+                alert(JSON.stringify(token));
+                console.log(token);
+
+                // $.each(data.categories, function (index, item) {
+                //     console.log(item);
+                //     var tbodys = $("#catlist");
+                //     var rowItems = $("<tr>");
+
+                //     var listItem = $('<td>'
+                //         + item.id + '</td>'
+                //         + '<td>' + item.name + '</td>'
+                //         + '<td><a href="#" id="btnEditCategory" onclick="JavaScript:getCategoryDetailsForEdit(' + item.id + ')" class="formEdit" ><i class="fa-regular fa-pen-to-square"></i></a > </td>'
+                //         + '<td><input type="checkbox" value = "' + item.id + '" id = "chkCategory" name = "category" class= "checkSingle" /></td>'
+                //         + '<td><a href="#" class="glyphicon glyphicon-trash" onclick="JavaScript: DeleteCategory()"><i class="fa-regular fa-trash-can"></i></a></td>');
+
+                //     rowItems.append(listItem);
+                //     tbodys.append(rowItems);
+
+            },
+            error: function () {
+                alert("Error fetching data from the server.");
+            }
+        });
+    }
+
+
+
+    function FindExistingUser() {
+        if (($("#txtUserName").val() != "") && ($("#txtRefreshToken").val() != "")) {
+
+            var jsonData =
+            {
+                UserName: $("#txtUserName").val(),
+                RefreshToken: $("#txtRefreshToken").val(),
+            };
+            $.ajax({
+                url: '/api/Authen/UpdateUserByUserName',
+                type: 'POST',
+                dataType: 'json',
+                data: JSON.stringify(jsonData),
+                headers: { 'Content-Type': 'application/json' },
+                success: function (data) {
+                    console.log(data);
+
+                },
+                error: function (r) {
+                    var jsonError = JSON.stringify(r);
+                    alert("error" + jsonError);
+                }
+            });
+
+        }
+
+        else {
+            alert("All field value required");
+        }
+    }
+</script>
+
+<h1> Login</h1>
+
+<div class="custom-form" id="frmRegistration">
+
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input id="txtUserName" name="name" placeholder="Your name required" type="text" class="custom-input" />
+    </div>
+
+    <div class="form-group">
+        <label for="name">Name:</label>
+        <input id="txtRefreshToken" name="refreshtoken" placeholder="Your name required" type="text" class="custom-input" />
+    </div>
+
+    <div class="button-group">
+
+        <a class="custom-button submit-button" id="btnUserTest" onclick="JavaScript:FindExistingUser()">Submit</a>
+    </div>
+
+</div>

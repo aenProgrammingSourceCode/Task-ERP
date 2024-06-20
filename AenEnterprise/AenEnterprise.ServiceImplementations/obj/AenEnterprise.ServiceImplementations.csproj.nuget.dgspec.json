@@ -1,0 +1,254 @@
+{
+  "format": 1,
+  "restore": {
+    "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.ServiceImplementations\\AenEnterprise.ServiceImplementations.csproj": {}
+  },
+  "projects": {
+    "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.DataAccess\\AenEnterprise.DataAccess.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.DataAccess\\AenEnterprise.DataAccess.csproj",
+        "projectName": "AenEnterprise.DataAccess",
+        "projectPath": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.DataAccess\\AenEnterprise.DataAccess.csproj",
+        "packagesPath": "C:\\Users\\NURUL AMIN\\.nuget\\packages\\",
+        "outputPath": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.DataAccess\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\NURUL AMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.DomainModel\\AenEnterprise.DomainModel.csproj": {
+                "projectPath": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.DomainModel\\AenEnterprise.DomainModel.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Design": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Proxies": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.SqlServer": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            },
+            "Microsoft.EntityFrameworkCore.Tools": {
+              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[7.0.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.DomainModel\\AenEnterprise.DomainModel.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.DomainModel\\AenEnterprise.DomainModel.csproj",
+        "projectName": "AenEnterprise.DomainModel",
+        "projectPath": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.DomainModel\\AenEnterprise.DomainModel.csproj",
+        "packagesPath": "C:\\Users\\NURUL AMIN\\.nuget\\packages\\",
+        "outputPath": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.DomainModel\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\NURUL AMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "Microsoft.AspNetCore.Http": {
+              "target": "Package",
+              "version": "[2.2.2, )"
+            },
+            "Microsoft.AspNetCore.Http.Features": {
+              "target": "Package",
+              "version": "[5.0.17, )"
+            },
+            "Microsoft.CodeAnalysis.CSharp": {
+              "target": "Package",
+              "version": "[4.8.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.ServiceImplementations\\AenEnterprise.ServiceImplementations.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.ServiceImplementations\\AenEnterprise.ServiceImplementations.csproj",
+        "projectName": "AenEnterprise.ServiceImplementations",
+        "projectPath": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.ServiceImplementations\\AenEnterprise.ServiceImplementations.csproj",
+        "packagesPath": "C:\\Users\\NURUL AMIN\\.nuget\\packages\\",
+        "outputPath": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.ServiceImplementations\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\NURUL AMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net7.0"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net7.0": {
+            "targetAlias": "net7.0",
+            "projectReferences": {
+              "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.DataAccess\\AenEnterprise.DataAccess.csproj": {
+                "projectPath": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.DataAccess\\AenEnterprise.DataAccess.csproj"
+              },
+              "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.DomainModel\\AenEnterprise.DomainModel.csproj": {
+                "projectPath": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.DomainModel\\AenEnterprise.DomainModel.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net7.0": {
+          "targetAlias": "net7.0",
+          "dependencies": {
+            "AutoMapper": {
+              "target": "Package",
+              "version": "[13.0.1, )"
+            },
+            "Mapster": {
+              "target": "Package",
+              "version": "[7.4.0, )"
+            },
+            "Microsoft.AspNetCore.Authentication.JwtBearer": {
+              "target": "Package",
+              "version": "[7.0.11, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.403\\RuntimeIdentifierGraph.json"
+        }
+      }
+    }
+  }
+}

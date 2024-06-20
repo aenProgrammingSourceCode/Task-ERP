@@ -1,0 +1,192 @@
+﻿
+@{
+    ViewData["Title"] = "Dashboard";
+    Layout = "~/Views/Shared/AdminPanel_Layout.cshtml";
+}
+
+<h1>Dashboard</h1>
+
+<style>
+    tr.top_tr td {
+        border-bottom: 1px solid black;
+        min-width: 16%;
+    }
+
+    th {
+        font: bold 11px"Helvetica Neue", Verdana, Arial, Helvetica, sans-serif;
+        color: #4f6b72;
+        border-right: 1px solid #C1DAD7;
+        border-bottom: 1px solid #C1DAD7;
+        border-top: 1px solid #C1DAD7;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-align: left;
+        padding: 6px 6px 6px 12px;
+        background: #CAE8EA url(images/bg_header.jpg) no-repeat;
+        width: 16%;
+    }
+
+    td {
+        border-right: 1px solid #C1DAD7;
+        border-bottom: 1px solid #C1DAD7;
+        background: #fff;
+        padding: 0px;
+        color: #4f6b72;
+        width: 14%;
+    }
+
+        td:first-child {
+            border-left: 1px solid #C1DAD7;
+        }
+
+    table {
+        padding: 0px;
+    }
+
+    #top_table {
+        padding: 10px;
+        width: 100%;
+    }
+
+    body {
+        padding: 10px;
+    }
+
+    .subtable {
+        width: 100%;
+    }
+
+    .body-td {
+        border: none;
+        width: 16%;
+    }
+
+    .collapse {
+        position: relative;
+        height: 0;
+        overflow: hidden;
+        -webkit-transition: height 0.35s ease;
+        -moz-transition: height 0.35s ease;
+        -o-transition: height 0.35s ease;
+        transition: height 0.35s ease;
+        display: inline;
+        width: 100%;
+        float: left;
+    }
+
+    tr.collapse > td {
+        display: table;
+        width: 100%;
+    }
+</style>
+<table id="top_table">
+    <thead>
+        <tr>
+            <th>List Name</th>
+            <th>No. Records</th>
+            <th>Avail. Records</th>
+            <th>Creation Date</th>
+            <th>Last Used</th>
+            <th>Performance</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <td colspan="6">
+                <table class="subtable">
+                    <tbody>
+                        <tr class="top_tr accordion-toggle" data-toggle="collapse" data-parent="#top_table" href="#collapseOne">
+                            <td>LIST NO. 1</td>
+                            <td>30000</td>
+                            <td>3340</td>
+                            <td>05-26-2004</td>
+                            <td>21 days ago</td>
+                            <td>7.3 % TRANSFER RATE</td>
+                        </tr>
+                        <tr>
+                            <td colspan="6">
+                                <table>
+                                    <tbody id="collapseOne" class="accordion-body collapse">
+                                        <tr>
+                                            <td class="body-td" colspan="6">THIS IS A BIG ROW IN A TABLE</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="body-td" colspan="6">THIS IS A BIG ROW IN A TABLE</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="body-td" colspan="6">THIS IS A BIG ROW IN A TABLE</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6">
+                <table class="subtable">
+                    <tbody>
+                        <tr class="top_tr  accordion-toggle" data-toggle="collapse" data-parent="#top_table" href="#collapseTwo">
+                            <td>LIST NO. 2</td>
+                            <td>30000</td>
+                            <td>3340</td>
+                            <td>05-26-2004</td>
+                            <td>21 days ago</td>
+                            <td>7.3 % TRANSFER RATE</td>
+                        </tr>
+                        <tr>
+                            <td colspan="6">
+                                <table>
+                                    <tbody id="collapseTwo" class="accordion-body collapse">
+                                        <tr>
+                                            <td class="body-td" colspan="6">THIS IS A BIG ROW IN A TABLE</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="body-td" colspan="6">THIS IS A BIG ROW IN A TABLE</td>
+                                        </tr>
+                                        <tr>
+                                            <td class="body-td" colspan="6">THIS IS A BIG ROW IN A TABLE</td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="6">
+                <table class="subtable">
+                    <tbody>
+                        <tr class="top_tr">
+                            <td>LIST NO. 3</td>
+                            <td>30000</td>
+                            <td>3340</td>
+                            <td>05-26-2004</td>
+                            <td>21 days ago</td>
+                            <td>7.3 % TRANSFER RATE</td>
+                        </tr>
+                        <tr>
+                            <td colspan="6">THIS IS A BIG ROW IN A TABLE</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+    $(document).ready(function () {
+        // Get the values from the URL
+        var urlParams = new URLSearchParams(window.location.search);
+        var salesOrderId = urlParams.get('salesOrderId'); // Corrected parameter name
+
+        // // Set the iframe source with the values from the URL
+        // var iframeSrc = "@Url.Action("GetSalesOrderById", "SalesOrderReport")?salesOrderId=" + salesOrderId; // Corrected controller and action names
+        // // $("#reportIframe").attr("src", iframeSrc);
+    });
+</script>

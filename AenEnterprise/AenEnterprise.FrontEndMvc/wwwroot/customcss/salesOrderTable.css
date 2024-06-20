@@ -1,0 +1,192 @@
+﻿#lg-Loader {
+    background-position: center top;
+    margin: 110px;
+    padding: 110px;
+    background-image: url('images/bgLoad.gif');
+    background-repeat: no-repeat;
+}
+
+
+.salesOrder-container {
+    width: 100%;
+    padding:10px;
+    display: flex;
+    font-size: 15px;
+    font-weight: bold;
+    flex-direction: column;
+    background-color: #fff;
+    font: bold 11px"Helvetica Neue", Verdana, Arial, Helvetica, sans-serif;
+}
+
+.salesOrder-item-content {
+    display: flex;
+    flex-direction: row;
+    background-color: #e6e0d8;
+    font-weight: normal;
+    border-top:1px solid #b0ab87
+
+    /*border-left: 2px solid #e6e0d8;
+    border-right: 2px solid #e6e0d8;*/
+}
+
+.salesOrder-item-data {
+    display: flex;
+    flex-direction: row;
+    background-color: #fff;
+    font-weight: normal;
+    border: 1px solid #e6e0d8;
+}
+
+.salesOrder-cell {
+    padding: 10px;
+    width: 25%;
+    background-color: #fff;
+    font-weight: normal;
+    border: 1px solid #e6e0d8;
+}
+
+.salesOrder-cell-content {
+    padding: 10px;
+    width: 20%;
+    background-color: #e6e0d8
+}
+.salesOrder-cell-marge-2 {
+    padding: 10px;
+    width: 42%;
+}
+select {
+    width: 25%; /* Set the width of the select element */
+}
+
+
+.salesOrder-cell a {
+        padding: 10px;
+        width: 33.33%;
+        font-size: small;
+        font-weight: normal;
+        background-color:#fff;
+        color:blue;
+        
+         
+    }
+
+.orderItems-container {
+    background-color: rgb(255, 254, 254);
+    width: 100%;
+    margin-bottom: 2px;
+    display: flex;
+    flex-direction: column;
+    font-weight: normal;
+    border-left: 1px solid #b0ab87;
+    border-bottom: 1px solid #b0ab87;
+    border-right: 1px solid #b0ab87;
+}
+
+.orderitem-cell-header {
+    padding: 6px;
+    flex-direction: row;
+    gap: 20px;
+    width: 17%;
+    border: 1px solid #e6e0d8;
+    font-weight: bold;
+    color: #6b6b61;
+    background-color:#fff;
+}
+
+.orderitem-cell-data {
+    padding: 6px;
+    flex-direction: row;
+    gap: 20px;
+    width: 17%;
+    border: 1px solid #e6e0d8;
+    background-color: #fff;
+    font-weight:normal;
+}
+
+.orderitem-cell-header-container {
+    display: flex;
+    color: #292915;
+}
+
+.orderitem-cell-data-container {
+    display: flex;
+    color: #6b6b61;
+}
+orderitem-cell-data-container-footer{
+    
+}
+
+ /*this area only form approval area*/
+.approval-criteria {
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+    gap: 10px;
+}
+
+    .approval-criteria input[type=submit] {
+        width: 80px;
+        height: 35px
+    }
+
+    .approval-criteria select {
+        width: 100px;
+        height: 35px;
+        border: 1px solid #1122;
+    }
+.criteria-container {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    padding-right: 10px;
+}
+
+    .criteria-container input[type="text"], input[type="date"] {
+        width:24%;
+    }
+    .criteria-container a {
+        display: inline-block;
+        padding: 10px 20px;
+        text-decoration: none;
+        background-color: #3498db;
+        color: #fff;
+        border-radius: 4px;
+        height: 20px;
+        width: 120px;
+    }
+
+.totalItemsFound {
+    color: #6b6b61;
+    font-size: small;
+}
+
+.status-button {
+    display: inline-block;
+    padding: 5px 5px;
+    border: 2px solid #3498db;
+    border-radius: 5px;
+    background-color: #3498db;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    font-size: 14px;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+    /* Hover effect */
+    .status-button:hover {
+        background-color: #2980b9;
+        border-color: #2980b9;
+        color: white;
+    }
+
+    /* Active/focus effect */
+    .status-button:active,
+    .status-button:focus {
+        outline: none;
+        background-color: #2980b9;
+        border-color: #2980b9;
+        color: white;
+    }

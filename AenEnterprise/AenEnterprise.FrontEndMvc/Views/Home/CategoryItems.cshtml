@@ -1,0 +1,172 @@
+﻿
+@{
+    ViewData["Title"] = "CategoryItems";
+    Layout = "~/Views/Shared/AdminPanel_Layout.cshtml";
+}
+
+
+@* <link href="~/customcss/table.css" rel="stylesheet" />
+<link href="~/customcss/dashboard.css" rel="stylesheet" />
+
+<script src="~/script/code.jquery.com_jquery-3.7.1.min.js"></script>
+<script src="~/script/jquery-jtemplates.js"></script>
+<script src="https://kit.fontawesome.com/34a59c0339.js" crossorigin="anonymous"></script>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo="
+        crossorigin="anonymous"></script> *@
+ 
+<script>
+
+
+
+    // $(document).ready(function ()
+    //         // GetAllCateogry();
+          
+    //     //Checkbox looping system
+    //     // $("#checkedAll").change(function () {
+    //     //     if (this.checked) {
+    //     //         $(".checkSingle").each(function () {
+    //     //             this.checked = true;
+    //     //         })
+    //     //     } else {
+    //     //         $(".checkSingle").each(function () {
+    //     //             this.checked = false;
+    //     //         })
+    //     //     }
+    //     // });
+    //     // $(".checkSingle").click(function () {
+    //     //     if ($(this).is(":checked")) {
+    //     //         var isAllChecked = 0;
+    //     //         $(".checkSingle").each(function () {
+    //     //             if (!this.checked)
+    //     //                 isAllChecked = 1;
+    //     //         })
+    //     //         if (isAllChecked == 0) { $("#checkedAll").prop("checked", true); }
+    //     //     }
+    //     //     else {
+    //     //         $("#checkedAll").prop("checked", false);
+    //     //     }
+    //     // });
+    // });
+
+  
+
+
+
+    $(document).ready(function () {
+        GetAllSalesOrder();
+    })
+    
+ 
+    function GetCategory() {
+        // AJAX request to fetch data from the API
+        $.ajax({
+            url: '/api/Authen/GetToken', // Replace with your API endpoint
+            type: 'Get',
+            contentType: 'application/json;charset-utf-8',
+            success: function (token) {
+                $.ajax({
+                    url: '/api/Inventory/GetAll', // Replace with your API endpoint
+                    type: 'GET',
+                    cache: false,
+                    async: true,
+                    dataType: 'json',
+                    headers: {
+                        'Authorization':'Bearer '+token
+                    },
+                    contentType: 'application/json;charset-utf-8',
+                    success: function (data) {
+                        $.each(data.categories, function (index, item) {
+                            console.log(item);
+                            var tbodys = $("#catlist");
+                            var rowItems = $("<tr>");
+                            var rowItems1 = $("<tr>");
+                            var listItem = $('<td>'
+                                + item.id + '</td>'
+                                + '<td>' + item.name + '</td>'
+                                + '<td><a href="#" id="btnEditCategory" onclick="JavaScript:getCategoryDetailsForEdit(' + item.id + ')" class="formEdit" ><i class="fa-regular fa-pen-to-square"></i></a > </td>'
+                                + '<td><input type="checkbox" value = "' + item.id + '" id = "chkCategory" name = "category" class= "checkSingle" /></td>'
+                                + '<td><a href="#" class="glyphicon glyphicon-trash" onclick="JavaScript: DeleteCategory()"><i class="fa-regular fa-trash-can"></i></a></td>');
+                            rowItems.append(listItem);
+                            tbodys.append(rowItems);
+                        });
+                        console.log(data);
+                    },
+                    error: function () {
+                        alert("Error fetching data from the server.");
+                    }
+                });
+            },
+            error: function () {
+                alert("Error fetching data from the server.");
+            }
+        });
+    } 
+    function DeleteCategory() {
+        var chkChecked = $("input[name='category']:checked").length;
+
+        if (chkChecked >= 1) {
+            var postArr = [];
+            var index = 0;
+            var deleteData;
+
+            $.each($("input[name='category']:checked"), function () {
+                postArr[index] = { CategoryId: $(this).val() }
+                index++;
+            });
+            deleteData = { Categories: postArr };
+            var jsonData = JSON.stringify(deleteData);
+            $.ajax({
+                url: '/api/Category/Delete',
+                type: 'POST',
+                cache: false,
+                dataType: 'json',
+                data: jsonData,
+                contentType: 'application/json;charset-utf-8',
+                success: function (data) {
+                    GetAllCateogry();
+                },
+                error: function (r) {
+                    var jsonError = JSON.stringify(r);
+                    alert("error" + jsonError);
+                }
+            });
+        }
+        else {
+            alert("Please select category to remove!");
+        }
+    }
+
+    window.onload = function () {
+        const featureList = document.querySelectorAll('.topMenu');
+        featureList.forEach((item, i) => {
+            item.addEventListener('mouseover', function () {
+                item.classList.add('active');
+            })
+            item.addEventListener('mouseout', function () {
+                item.classList.remove('active');
+            })
+        })
+
+    }
+</script>
+<h1>Category Items</h1>
+<hr>
+<table id="top_table">
+    <thead>
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Edit</th>
+            <th><input type="checkbox" name="checkedAll" class="input-group-sm" id="checkedAll" /></th>
+            <th><a href="#" class="glyphicon glyphicon-trash" onclick="JavaScript: DeleteCategory()"></a></th>
+        </tr>
+    </thead>
+
+    <tbody id="catlist">
+        <!-- Table data will be populated here -->
+    </tbody>
+</table>
+   

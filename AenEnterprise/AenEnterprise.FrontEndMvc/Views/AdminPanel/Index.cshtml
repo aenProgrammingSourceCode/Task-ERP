@@ -1,0 +1,91 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/AdminPanel_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<script src="~/script/jquery.com_jquery-3.7.1.min.js"></script>
+<script>
+    $(document).ready(function () {
+         
+    });
+
+
+    // function showpage(PageNumber) {
+    //     const pageNumber = PageNumber;
+    //     $('.paging .page-link').each(function (index) {
+    //         if (index < pageNumber) {
+    //             $(this).addClass("hidden");
+    //         }
+    //         else 
+    //         { 
+    //             $(this).removeClass("hidden");
+    //         }
+    //     })
+    // }
+</script>
+<script>
+     
+
+    function showpage(PageNumber) {
+        const totalPages = $('.paging .page-link').length;
+        const pagesToShow = 6; // Number of pages to show at once
+
+        $('.paging .page-link').addClass("hidden");
+
+        if (PageNumber === 'previous') {
+            // Show every 4 previous pages when "Previous" is clicked
+            const currentPage = $('.paging .page-link:not(.hidden)').first().index();
+            const startPage = Math.max(0, currentPage - (pagesToShow * 4)); // Adjust the multiplier to show 4 pages
+            const endPage = Math.min(totalPages, startPage + pagesToShow);
+            for (let i = startPage; i < endPage; i++) {
+                $('.paging .page-link').eq(i).removeClass("hidden");
+            }
+        } else if (PageNumber === 'next') {
+            // Show every 4 next pages when "Next" is clicked
+            const currentPage = $('.paging .page-link:not(.hidden)').last().index();
+            const startPage = Math.min(totalPages, currentPage + 1);
+            const endPage = Math.min(totalPages, startPage + (pagesToShow * 4)); // Adjust the multiplier to show 4 pages
+            for (let i = startPage; i < endPage; i++) {
+                $('.paging .page-link').eq(i).removeClass("hidden");
+            }
+        } else {
+            // Show the appropriate range around the selected page
+            const pageNumber = PageNumber;
+            const startPage = Math.max(0, Math.min(pageNumber - Math.floor(pagesToShow / 2), totalPages - pagesToShow));
+            const endPage = Math.min(totalPages, startPage + pagesToShow);
+            for (let i = startPage; i < endPage; i++) {
+                $('.paging .page-link').eq(i).removeClass("hidden");
+            }
+        }
+    }
+    
+
+</script>
+
+
+
+<style>
+    .paging .hidden{
+        display:none;
+    }
+</style>
+
+<div class="paging">
+    <a href="#" class="page-link" onclick="showpage('previous')">Previous</a>
+    <a href="#" class="page-link" onclick="Javascript:showpage(1)">1</a>
+    <a href="#" class="page-link" onclick="Javascript:showpage(2)">2</a>
+    <a href="#" class="page-link" onclick="Javascript:showpage(3)">3</a>
+    <a href="#" class="page-link" onclick="Javascript:showpage(4)">4</a>
+    <a href="#" class="page-link" onclick="Javascript:showpage(5)">5</a>
+    <a href="#" class="page-link" onclick="Javascript:showpage(6)">6</a>
+    <a href="#" class="page-link" onclick="Javascript:showpage(7)">7</a>
+    <a href="#" class="page-link" onclick="Javascript:showpage(8)">8</a>
+    <a href="#" class="page-link" onclick="Javascript:showpage(9)">9</a>
+    <a href="#" class="page-link" onclick="Javascript:showpage(10)">10</a>
+    <a href="#" class="page-link" onclick="Javascript:showpage(11)">11</a>
+    <a href="#" class="page-link" onclick="Javascript:showpage(12)">12</a>
+    <a href="#" class="page-link" onclick="showpage('next')">Next</a>
+</div>

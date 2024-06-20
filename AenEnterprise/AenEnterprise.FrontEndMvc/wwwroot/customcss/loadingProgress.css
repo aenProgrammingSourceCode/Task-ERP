@@ -1,0 +1,48 @@
+﻿#sm-Loader {
+    background-position: center top;
+    margin: 2px;
+    padding: 2px;
+    background-image: url('../images/sm-ajax-loader.gif');
+    /*background-image: url('../images/bgload.gif');*/
+    background-repeat: no-repeat;
+    display: none;
+    width: 20px;
+    height: 20px;
+}
+
+#lg-Loader {
+    background-position: center top;
+    margin: 110px;
+    padding: 110px;
+    background-image: url('../images/bgload.gif');
+    background-repeat: no-repeat;
+}
+
+
+.logo-fixed {
+    position: fixed;
+    z-index: 2000;
+}
+
+
+#overlay {
+    background: #ccc url('images/ajax-loader.gif') no-repeat 50% 50%;
+    display: none;
+    position: absolute;
+    text-align: center;
+    z-index: 1;
+    border: 1px dashed #CCC;
+     
+}
+
+#smoverlay {
+    background: #ccc url(images/sm-ajax-loader.gif) no-repeat 50% 50%;
+    display: none;
+    position: absolute;
+    text-align: center;
+    z-index: 1;
+    border: 1px dashed #CCC;
+}
+ 
+
+

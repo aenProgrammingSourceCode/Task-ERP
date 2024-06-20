@@ -1,0 +1,138 @@
+﻿
+@{
+    ViewData["Title"] = "UserRegistration";
+    Layout = "~/Views/Shared/Login_Layout.cshtml";
+}
+
+ 
+<script>
+    $(document).ready(function () {
+        $('#btnRegi').on('click', function (event) {
+            event.preventDefault();
+           
+            GetUserName();
+        });
+
+        //Keyboard behaviour
+        function handleEnterKeyPress(event) {
+            if (event.keyCode === 13) { // Check if the pressed key is Enter (key code 13)
+                event.preventDefault();
+                UserRegistration();
+
+            }
+        }
+        document.addEventListener('keypress', function (event) {
+            handleEnterKeyPress(event); // Call the function to handle Enter key press
+        });
+    })
+    
+    async function UserRegistration() {
+        try {
+            if ($("#txtUsername").val() !== "" && $("#txtPassword").val() !== "") {
+
+                var username = $("#txtUsername").val();
+                var password = $("#txtPassword").val();
+               
+                var jsonData = {
+                    Username: username,
+                    Password: password
+                };
+
+               
+                await $.ajax({
+                    url: '/api/Authen/register',
+                    method: 'POST',
+                    contentType: "application/json",
+                    data: JSON.stringify(jsonData),
+                    success: function (data) {
+                        window.location.href = '@Url.Action("Index", "Home")';
+                    },
+                    error: function (r) {
+                        var jsonError = JSON.stringify(r);
+                        alert("Alam Correction needed -" + jsonError);
+                    }
+                });
+            }
+            else {
+                $("#lblException").text("Please enter your UserName & Password to proceed").css("color", "red");
+            }
+        } catch (error) {
+            console.error('Error:', error);
+            alert('An error occurred during registration.'); // Display an error message if AJAX request fails
+        }
+    }
+
+    async function GetUserName() {
+        if ($("#txtUsername").val() !== "" && $("#txtPassword").val() !== "") {
+            var userName = $("#txtUsername").val();
+            var passWord = $("#txtPassword").val();
+
+            var jsonData = {
+                Username: userName,
+                Password: passWord
+            };
+            showLoader('sm-Loader');
+            await $.ajax({
+                url: '/api/Authen/GetUserName',
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                data: JSON.stringify(jsonData),
+                success: function (datas) {
+                    var userData = datas.user;
+
+                    console.log(userData); // Check the structure of userData in the console
+
+                    if (userData && userData.username != null) {
+                        $("#lblException").text("Username already exists").css("color", "red");
+                    } else {
+                        UserRegistration();
+                    }
+                    hideLoader('sm-Loader');
+                },
+                error: function (xhr, textStatus, errorThrown) {
+                    // Handle error
+                    console.error(textStatus, errorThrown);
+                }
+            });
+        }
+    }
+
+    function showLoader(idShowLoader) {
+        $("#" + idShowLoader).show();
+    }
+    function hideLoader(idHideLoader) {
+        $("#" + idHideLoader).hide();
+    }
+
+
+</script>
+
+
+<div class="login-form" id="regiForm">
+    <div class="custom-form-registration" id="frmRegi">
+        <div class="header-registration">
+            <h2>Registration</h2>
+             
+        </div>
+        
+        <form method="post">
+            <label id="lblException"></label>
+            <div class="form-group">
+                <label for="name">User Name:</label>
+                <input id="txtUsername" name="name" placeholder="Your name or email or phon required" type="text" class="custom-input1" />
+            </div>
+
+            <div class="form-group">
+                <label for="name">Password:</label>
+                <input id="txtPassword" name="name" placeholder="Your password required" type="password" class="custom-input1" />
+            </div>
+
+            <div class="button-group">
+                <a href="#" class="custom-button submit-button" id="btnRegi">Registration</a><div id="sm-Loader"></div>
+                <a href="@Url.Action("Index", "Home")">Login User</a><br>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,125 @@
+﻿
+@{
+    ViewData["Title"] = "SalesOrderDetails";
+    Layout = "~/Views/Shared/AdminPanel_Layout.cshtml";
+}
+
+<h1>SalesOrderDetails</h1>
+<script>
+    $(document).ready(function () {
+        var paths = window.location.pathname;
+        var pt = paths.length;
+        var Id = paths.substring(24, pt);
+        getSalesOrderDetails(Id);
+
+    })
+
+    function getSalesOrderDetails(Id) {
+        $.ajax({
+            url: '/api/SalesOrder/GetSalesOrderDetails?salesOrderId=' + Id,
+            type: 'GET',
+            dataType: 'json',
+            contentType: 'application/json;charset-utf-8',
+            success: function (data) {
+                $("#salesOrderDetailsForEditHtml").setTemplate($("#salesOrderDetailsTemp").html());
+                $("#salesOrderDetailsForEditHtml").processTemplate(data.salesOrder);
+            },
+            error: function (er) {
+                var errorSycronim = JSON.stringify(er);
+                alert("eoorr" + errorSycronim);
+            }
+        });
+    }
+    </script>
+ 
+<div class="salesOrder-container">
+    <div class="salesOrder-item-header">
+        <div class="salesOrder-cell">
+            Order No
+        </div>
+        <div class="salesOrder-cell">
+            Customer Name
+        </div>
+        <div class="salesOrder-cell">
+            Order Date
+        </div>
+
+    </div>
+    <div id="salesOrderDetailsForEditHtml"></div>
+    <script type="text/html" id="salesOrderDetailsTemp">
+           
+
+        <div class="salesOrder-item-data">
+            <div class="salesOrder-cell">
+                              {$T.salesOrderNo}
+            </div>
+            <div class="salesOrder-cell">
+                                {$T.customerName}
+            </div>
+            <div class="salesOrder-cell">
+                        {$T.orderedDate}
+            </div>
+            <div class="salesOrder-cell">
+                        Delete
+            </div>
+
+        </div>
+
+
+
+
+        <div class="orderItems-container">
+                  <div class="orderitem-cell-header-container">
+                    <div class="orderitem-cell-header">
+                        Item Id
+                    </div>
+                    <div class="orderitem-cell-header">
+                           Product Name
+                    </div>
+                    <div class="orderitem-cell-header">
+                        Price
+                    </div>
+                    <div class="orderitem-cell-header">
+                           Quantity
+                    </div>
+                    <div class="orderitem-cell-header">
+                        Invoice Quantity
+                    </div>
+                    <div class="orderitem-cell-header">
+                         Balance Quantity
+                    </div>
+                    <div class="orderitem-cell-header">
+                       Amount.(Tk) 
+                    </div>
+
+                </div>
+                 {#foreach $T.orderItems as record}
+
+            <div class="orderitem-cell-data-container">
+                <div class="orderitem-cell-data">
+                         {$T.record.id}
+                </div>
+                <div class="orderitem-cell-data">
+                        {$T.record.productName}
+                </div>
+                <div class="orderitem-cell-data">
+                        {$T.record.price}
+                </div>
+                <div class="orderitem-cell-data">
+                            {$T.record.quantityInFormat} {$T.record.unitName}
+            </div>
+            <div class="orderitem-cell-data">
+                                {$T.record.invoiceQuantityInFormat} {$T.record.unitName}
+            </div>
+            <div class="orderitem-cell-data">
+                            {$T.record.balanceQuantityInFormat} {$T.record.unitName}
+            </div>
+            <div class="orderitem-cell-data">
+                              {$T.record.amountInFormat}
+                </div>
+            </div>
+                {#/for}
+        </div>
+           
+    </script>
+</div>

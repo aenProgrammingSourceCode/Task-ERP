@@ -1,0 +1,181 @@
+is_global = true
+build_property.TargetFramework = net7.0
+build_property.TargetFramework = net7.0
+build_property.TargetPlatformMinVersion = 
+build_property.TargetPlatformMinVersion = 
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.UsingMicrosoftNETSdkWeb = true
+build_property.ProjectTypeGuids = 
+build_property.ProjectTypeGuids = 
+build_property.InvariantGlobalization = 
+build_property.InvariantGlobalization = 
+build_property.PlatformNeutralAssembly = 
+build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property.EnforceExtendedAnalyzerRules = 
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property._SupportedPlatformList = Linux,macOS,Windows
+build_property.RootNamespace = AenEnterprise.FrontEndMvc
+build_property.RootNamespace = AenEnterprise.FrontEndMvc
+build_property.ProjectDir = D:\Task-62\Task-60\Task-56 (2)\Task-56\Task-49\AenEnterprise\AenEnterprise.FrontEndMvc\
+build_property.RazorLangVersion = 7.0
+build_property.SupportLocalizedComponentNames = 
+build_property.GenerateRazorMetadataSourceChecksumAttributes = 
+build_property.MSBuildProjectDirectory = D:\Task-62\Task-60\Task-56 (2)\Task-56\Task-49\AenEnterprise\AenEnterprise.FrontEndMvc
+build_property._RazorSourceGeneratorDebug = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Pages/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcRXJyb3IuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Pages/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcSW5kZXguY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Pages/Privacy.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcUHJpdmFjeS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Pages/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Pages/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Pages/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/AdminPanel/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcQWRtaW5QYW5lbFxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/Home/CategoryItems.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDYXRlZ29yeUl0ZW1zLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/Home/CreatePurchaseOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxDcmVhdGVQdXJjaGFzZU9yZGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/Home/Dashboard.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxEYXNoYm9hcmQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/Home/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/Home/SalesOrderDetails.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTYWxlc09yZGVyRGV0YWlscy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/Home/SalesOrderList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxTYWxlc09yZGVyTGlzdC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/Home/UserRegistration.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxVc2VyUmVnaXN0cmF0aW9uLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/Home/Users.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxVc2Vycy5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/SalesManagement/ApproveDeliveryOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZXNNYW5hZ2VtZW50XEFwcHJvdmVEZWxpdmVyeU9yZGVyLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/SalesManagement/ApprovedInvoice.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZXNNYW5hZ2VtZW50XEFwcHJvdmVkSW52b2ljZS5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/SalesManagement/ApprovedSalesOrders.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZXNNYW5hZ2VtZW50XEFwcHJvdmVkU2FsZXNPcmRlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/SalesManagement/CreateDeliveryOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZXNNYW5hZ2VtZW50XENyZWF0ZURlbGl2ZXJ5T3JkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/SalesManagement/CreateDispatch.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZXNNYW5hZ2VtZW50XENyZWF0ZURpc3BhdGNoLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/SalesManagement/CreateInvoice.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZXNNYW5hZ2VtZW50XENyZWF0ZUludm9pY2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/SalesManagement/CreateSalesOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZXNNYW5hZ2VtZW50XENyZWF0ZVNhbGVzT3JkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/SalesManagement/DispatchedList.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZXNNYW5hZ2VtZW50XERpc3BhdGNoZWRMaXN0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/SalesManagement/Index.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZXNNYW5hZ2VtZW50XEluZGV4LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/SalesManagement/UnApproveDeliveryOrder.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZXNNYW5hZ2VtZW50XFVuQXBwcm92ZURlbGl2ZXJ5T3JkZXIuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/SalesManagement/UnApproveInvoice.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZXNNYW5hZ2VtZW50XFVuQXBwcm92ZUludm9pY2UuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/SalesManagement/UnApproveSalesOrders.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2FsZXNNYW5hZ2VtZW50XFVuQXBwcm92ZVNhbGVzT3JkZXJzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/Shared/AdminPanel_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFkbWluUGFuZWxfTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/Shared/AdminSales_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEFkbWluU2FsZXNfTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/Shared/Error.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/Shared/InventoryLayout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEludmVudG9yeUxheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/Shared/Login_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXExvZ2luX0xheW91dC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/Shared/SalesSearchCriteria_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXFNhbGVzU2VhcmNoQ3JpdGVyaWFfTGF5b3V0LmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/Shared/_ValidationScriptsPartial.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/UnApproveSalesOrders.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcVW5BcHByb3ZlU2FsZXNPcmRlcnMuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/_ViewImports.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/_ViewStart.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
+build_metadata.AdditionalFiles.CssScope = 
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Pages/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = UGFnZXNcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-h8c4m6qt5p
+
+[D:/Task-62/Task-60/Task-56 (2)/Task-56/Task-49/AenEnterprise/AenEnterprise.FrontEndMvc/Views/Shared/_Layout.cshtml]
+build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
+build_metadata.AdditionalFiles.CssScope = b-jl35rddxi4

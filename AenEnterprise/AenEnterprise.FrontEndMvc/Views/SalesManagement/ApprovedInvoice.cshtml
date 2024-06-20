@@ -1,0 +1,158 @@
+﻿
+@{
+    ViewData["Title"] = "ApprovedInvoice";
+    Layout = "~/Views/Shared/AdminSales_Layout.cshtml";
+}
+
+
+@{
+    ViewData["Title"] = "ApprovedSalesOrders";
+    Layout = "~/Views/Shared/AdminSales_Layout.cshtml";
+}
+
+
+<script>
+
+    $(document).ready(function () {
+        setDefaultDates();
+        getInvoices(1, 6);
+    });
+
+    async function getInvoices(pageNumber, pageSize) {
+        const dateFromInput = new Date(document.getElementById('dateFromInput').value).toISOString();
+        const dateToInput = new Date(document.getElementById('dateToInput').value).toISOString();
+        const criteriaName = document.getElementById('txtCriteriaName').value;
+        await GetAllInvoices(pageNumber, pageSize, dateFromInput, dateToInput, criteriaName);
+    }
+    async function GetAllInvoices(pageNumber, pageSize, dateFrom, dateTo, criteriaName) {
+        try {
+            var jsonData = {
+                DateFrom: dateFrom,
+                DateTo: dateTo,
+                PageNumber: pageNumber,
+                PageSize: pageSize,
+                CriteriaName: criteriaName
+            }
+            var url = 'SalesOrder/GetAllApprovedInvoices';
+            var salesResponse = await getAllDataWithParameter(url, jsonData);
+            $(".totalItemsFound").empty();
+            $("#salesOrderElement").setTemplate($("#salesOrdersTemp").html());
+            $("#salesOrderElement").processTemplate(salesResponse);
+            paginationCallBackForInvoiceList(salesResponse.totalPages, pageNumber);
+            showpage(pageNumber, salesResponse.totalPages);
+            $(".totalItemsFound").append(JSON.stringify('Items found-' + salesResponse.totalCount + '/' + salesResponse.totalPages + ' Pages'));
+
+        } catch (error) {
+            console.error("Error fetching data from the server: " + error.message);
+        }
+    }
+
+</script>
+
+<div class="salesOrder-container">
+    <div class="criteria-container">
+        <input type="date" id="dateFromInput">
+        <input type="date" id="dateToInput">
+        <input type="text" id="txtCriteriaName" placeholder="Search Order Items" />
+        <a href="#" onclick="Javascript: getInvoices(1,6)">Search</a>
+    </div>
+
+     
+    <div class="salesOrder-item-content">
+        <div class="salesOrder-cell-marge-2">
+            <div class="totalItemsFound"></div>
+        </div>
+        <div class="salesOrder-cell-content">
+        </div>
+        <div class="salesOrder-cell-content">
+        </div>
+        <div class="salesOrder-cell-content">
+            
+        </div>
+    </div>
+
+    <div id="salesOrderElement"></div>
+    <script type="text/html" id="salesOrdersTemp">
+                {#foreach $T.invoices as record}
+        <div class="salesOrder-item-data">
+            <div class="salesOrder-cell">
+
+                  {$T.record.id}
+                  <a href="@Url.Action("GetInvoiceBySalesOrderId", "SalesOrderReport")?InvoiceId={$T.record.id}">{$T.record.invoiceNo}</a>
+            </div>
+            <div class="salesOrder-cell">
+                        {$T.record.customerName}
+            </div>
+            <div class="salesOrder-cell">
+                        {$T.record.orderDateInFormat}
+            </div>
+            <div class="salesOrder-cell">
+               <a href="@Url.Action("CreateDeliveryOrder", "SalesManagement")/{$T.record.id}">Issue DO</a><br>
+            </div>
+            @* <div class="salesOrder-cell">
+                     <input type="checkbox" name="checkSingle" value="{$T.record.id}" class="checkSingle" id="chkSingle" />
+            </div> *@
+        </div>
+
+        <div class="orderItems-container">
+            <div class="orderitem-cell-header-container">
+                    <div class="orderitem-cell-header">
+                        Item Id
+                    </div>
+                    <div class="orderitem-cell-header">
+                           Product Name
+                    </div>
+                    <div class="orderitem-cell-header">
+                        Price
+                    </div>
+                    <div class="orderitem-cell-header">
+                           Quantity
+                    </div>
+                    <div class="orderitem-cell-header">
+                        Invoice Quantity
+                    </div>
+                    <div class="orderitem-cell-header">
+                         Balance Quantity
+                    </div>
+                    <div class="orderitem-cell-header">
+                       Select status
+                    </div>
+
+
+                </div>
+                 {#foreach $T.record.invoiceItems as inv}
+
+            <div class="orderitem-cell-data-container">
+                <div class="orderitem-cell-data">
+                        <span id="spnInvoiceItemId">{$T.inv.id}</span>
+
+                        <span id="spnInvoiceId">{$T.inv.invoiceId}</span>
+                </div>
+                <div class="orderitem-cell-data">
+                        {$T.inv.productName}
+                </div>
+                <div class="orderitem-cell-data">
+                        {$T.inv.price}
+                </div>
+                <div class="orderitem-cell-data">
+                            {$T.inv.invoiceQuantity }
+                </div>
+
+                <div class="orderitem-cell-data">
+                        {$T.inv.balanceQuantityInFormat} {$T.inv.unitName}
+                </div>
+                <div class="orderitem-cell-data">
+                          {$T.inv.amountInFormat}
+                </div>
+                <div class="orderitem-cell-data">
+                </div>
+            </div>
+                {#/for}
+        </div>
+                  {#/for}
+    </script>
+</div>
+<div class="pagebar-container">
+    <div class="totalItemsFound"></div> <div class="paging">
+    </div>
+</div>

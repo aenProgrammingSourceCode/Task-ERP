@@ -1,0 +1,337 @@
+{
+  "Files": [
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\obj\\Debug\\net7.0\\scopedcss\\projectbundle\\AenEnterprise.FrontEndMvc.bundle.scp.css",
+      "PackagePath": "staticwebassets\\AenEnterprise.FrontEndMvc.bundle.scp.css"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\Reports\\DeliveryOrderDetails.rdlc",
+      "PackagePath": "staticwebassets\\Reports\\DeliveryOrderDetails.rdlc"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\Reports\\InvoiceDetails.rdlc",
+      "PackagePath": "staticwebassets\\Reports\\InvoiceDetails.rdlc"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\Reports\\SalesOrderDetails.rdlc",
+      "PackagePath": "staticwebassets\\Reports\\SalesOrderDetails.rdlc"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\css\\site.css",
+      "PackagePath": "staticwebassets\\css\\site.css"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\customcss\\customForm.css",
+      "PackagePath": "staticwebassets\\customcss\\customForm.css"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\customcss\\dashboard.css",
+      "PackagePath": "staticwebassets\\customcss\\dashboard.css"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\customcss\\form.css",
+      "PackagePath": "staticwebassets\\customcss\\form.css"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\customcss\\loadingProgress.css",
+      "PackagePath": "staticwebassets\\customcss\\loadingProgress.css"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\customcss\\pagination.css",
+      "PackagePath": "staticwebassets\\customcss\\pagination.css"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\customcss\\salesOrderTable.css",
+      "PackagePath": "staticwebassets\\customcss\\salesOrderTable.css"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\customcss\\table.css",
+      "PackagePath": "staticwebassets\\customcss\\table.css"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\favicon.ico",
+      "PackagePath": "staticwebassets\\favicon.ico"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\images\\ajax-loader.gif",
+      "PackagePath": "staticwebassets\\images\\ajax-loader.gif"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\images\\bgLoad.gif",
+      "PackagePath": "staticwebassets\\images\\bgLoad.gif"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\images\\sm-ajax-loader.gif",
+      "PackagePath": "staticwebassets\\images\\sm-ajax-loader.gif"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\js\\site.js",
+      "PackagePath": "staticwebassets\\js\\site.js"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\LICENSE",
+      "PackagePath": "staticwebassets\\lib\\bootstrap"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.css.map"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.min.css.map"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-grid.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.css.map"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.min.css.map"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-reboot.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.css.map"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.min.css.map"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap-utilities.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.css.map"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.min.css.map"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.css.map"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\css\\bootstrap.rtl.min.css.map"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.js.map"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.bundle.min.js.map"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.js.map"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.esm.min.js.map"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.js.map"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map",
+      "PackagePath": "staticwebassets\\lib\\bootstrap\\dist\\js\\bootstrap.min.js.map"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.js"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation-unobtrusive\\jquery.validate.unobtrusive.min.js"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\jquery-validation\\LICENSE.md",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\LICENSE.md"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.js"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\jquery-validation\\dist\\additional-methods.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\additional-methods.min.js"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.js"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\jquery-validation\\dist\\jquery.validate.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery-validation\\dist\\jquery.validate.min.js"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\jquery\\LICENSE.txt",
+      "PackagePath": "staticwebassets\\lib\\jquery\\LICENSE.txt"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\jquery\\dist\\jquery.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.js"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\jquery\\dist\\jquery.min.js",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.js"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\lib\\jquery\\dist\\jquery.min.map",
+      "PackagePath": "staticwebassets\\lib\\jquery\\dist\\jquery.min.map"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\script\\ajaxScript.js",
+      "PackagePath": "staticwebassets\\script\\ajaxScript.js"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\script\\defaultDateFormat.js",
+      "PackagePath": "staticwebassets\\script\\defaultDateFormat.js"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\script\\jquery-jtemplates.js",
+      "PackagePath": "staticwebassets\\script\\jquery-jtemplates.js"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\script\\jquery.com_jquery-3.7.1.min.js",
+      "PackagePath": "staticwebassets\\script\\jquery.com_jquery-3.7.1.min.js"
+    },
+    {
+      "Id": "D:\\Task-62\\Task-60\\Task-56 (2)\\Task-56\\Task-49\\AenEnterprise\\AenEnterprise.FrontEndMvc\\wwwroot\\script\\paginationScript.js",
+      "PackagePath": "staticwebassets\\script\\paginationScript.js"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.AenEnterprise.FrontEndMvc.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.build.AenEnterprise.FrontEndMvc.props",
+      "PackagePath": "build\\AenEnterprise.FrontEndMvc.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildMultiTargeting.AenEnterprise.FrontEndMvc.props",
+      "PackagePath": "buildMultiTargeting\\AenEnterprise.FrontEndMvc.props"
+    },
+    {
+      "Id": "obj\\Debug\\net7.0\\staticwebassets\\msbuild.buildTransitive.AenEnterprise.FrontEndMvc.props",
+      "PackagePath": "buildTransitive\\AenEnterprise.FrontEndMvc.props"
+    }
+  ],
+  "ElementsToRemove": []
+}

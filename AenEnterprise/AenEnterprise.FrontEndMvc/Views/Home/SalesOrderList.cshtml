@@ -1,0 +1,142 @@
+﻿
+@{
+    ViewData["Title"] = "SalesOrderList";
+    Layout = "~/Views/Shared/AdminPanel_Layout.cshtml";
+}
+
+<h1>SalesOrderList</h1>
+<script>
+    $(document).ready(function () {
+        GetAllSalesOrder();
+    })
+
+    function CreateSalesOrder() {
+        if (($("#txtSalesOrderNo").val() != "")) {
+
+            var jsonData =
+            {
+                SalesOrder: $("#txtSalesOrderNo").val(),
+            };
+            $.ajax({
+                url: '/api/SalesOrder/CreateInvoice?salesOrderId',
+                type: 'POST',
+                dataType: 'json',
+                data: JSON.stringify(jsonData),
+                headers: { 'Content-Type': 'application/json' },
+                success: function (data) {
+                    window.location.href = "/";
+                },
+                error: function (r) {
+                    var jsonError = JSON.stringify(r);
+                    alert("error" + jsonError);
+                }
+            });
+        }
+
+        else {
+            alert("All field value required");
+        }
+    }
+
+    function GetAllSalesOrder() {
+        $.ajax({
+            url: '/api/SalesOrder/GetAllSales', // Replace with your API endpoint
+            type: 'GET',
+            cache: false,
+            async: true,
+            dataType: 'json',
+            contentType: 'application/json;charset-utf-8',
+            success: function (data) {
+
+                alert(JSON.stringify(data));
+                $.each(data.salesOrderViews, function (index, item) {
+                    var tbodys = $("#SalesOrderlist");
+                    var rowItems = $("<tr>");
+                    var rowItems1 = $("<tr>");
+                    var listItem = $('<td>'
+                        + item.id + '</td>'
+                        + '<td>' + item.customerName + '</td>'
+                        + '<td>' + item.orderedDate + '</td>'
+                        + '<td>' + item.productName + '</td>'
+                        + '<td>' + item.salesPrice + '</td>'
+                        + '<td>' + item.unitName + '</td>'
+                        + '<td>' + item.salesQuantity + '</td>'
+                        + '<td>' + item.salesAmount + '</td>'
+                        + '<td>' + item.totalInvoiceQuantity + '</td>'
+                        + '<td><a href="#" id="btnEditCategory" onclick="JavaScript:getCategoryDetailsForEdit(' + item.id + ')" class="formEdit" ><i class="fa-regular fa-pen-to-square"></i></a > </td>'
+                        + '<td><input type="checkbox" value = "' + item.id + '" id = "chkCategory" name = "category" class= "checkSingle" /></td>'
+                        + '<td><a href="#" class="glyphicon glyphicon-trash" onclick="JavaScript: DeleteCategory()"><i class="fa-regular fa-trash-can"></i></a></td>');
+                    rowItems.append(listItem);
+                    tbodys.append(rowItems);
+                });
+            },
+
+            error: function () {
+                alert("Error fetching data from the server.");
+            }
+        });
+    };
+</script>
+<style>
+    tr.top_tr td {
+        border-bottom: 1px solid black;
+        min-width: 16%;
+    }
+
+    th {
+        font: bold 11px"Helvetica Neue", Verdana, Arial, Helvetica, sans-serif;
+        color: #4f6b72;
+        border-right: 1px solid #C1DAD7;
+        border-bottom: 1px solid #C1DAD7;
+        border-top: 1px solid #C1DAD7;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        text-align: left;
+        padding: 6px 6px 6px 12px;
+        background: #CAE8EA url(images/bg_header.jpg) no-repeat;
+        width: 16%;
+    }
+
+    td {
+        border-right: 1px solid #C1DAD7;
+        border-bottom: 1px solid #C1DAD7;
+        background: #fff;
+        padding: 0px;
+        color: #4f6b72;
+        width: 14%;
+        height: 30px;
+        align-content: center;
+        border-left: 1px solid #C1DAD7;
+    }
+
+
+    #top_table {
+        padding: 10px;
+        width: 100%;
+    }
+     
+</style>
+
+<table id="top_table">
+    <thead>
+        <tr>
+            <th>Sl No</th>
+            <th>Customer Name</th>
+            <th>Order Date</th>
+            <th>Product Name</th>
+            <th>Price</th>
+            <th>Unit</th>
+            <th>Quantity</th>
+            <th>Total Amount</th>
+            <th>Total Invoice Quantity</th>
+            <th>Delete</th>
+            <th></th>
+            <th>Delete</th>
+        </tr>
+    </thead>
+    <tbody id="SalesOrderlist">
+       
+        
+    </tbody>
+    </table>
+     

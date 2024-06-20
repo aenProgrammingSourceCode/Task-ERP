@@ -1,0 +1,200 @@
+﻿* {
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.container-login {
+    display: grid;
+    place-items: center;
+    height: 100vh; /* Make the body fill the viewport height */
+    margin: 0;
+}
+
+.login-form {
+  width:80%
+}
+
+.header-login {
+    margin-bottom:10px;
+    padding-bottom:10px;
+    
+}
+.header-registration {
+    margin-bottom: 10px;
+    background-color: #b6c3c4;
+    padding-bottom: 10px;
+}
+
+.topBar {
+    background-color: #f2f2f2;
+    display: flex;
+    flex-direction: row;
+    height: 80px;
+}
+
+
+.topBarCenter {
+    background-color: #f2f2f2;
+    height: 60px;
+    flex: 7;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    color: #808080;
+    margin-bottom: 20px;
+    margin-left: 20px;
+    align-items: center;
+}
+
+.topBarCenter-login {
+    margin-left: auto;
+    padding-right: 50px;
+}
+
+/* Style for normal state */
+.topMenu {
+    font-family: "Open Sans", Arial, sans-serif;
+    text-decoration: none;
+    color: #000; /* Change color as needed */
+    padding: 5px 10px;
+    transition: transform 0.3s ease, background-color 0.3s ease, border-radius 0.3s ease; /* Initial transition settings */
+}
+
+    /* Style for hover state */
+    .topMenu:hover {
+        background-color: #3da4b2; /* Change background color on hover */
+        color: #333; /* Change text color on hover */
+        transform: scale(1.1); /* Example: Scale the element on hover */
+        transition: transform 0.3s ease; /* Smooth transition effect */
+        border-radius:2px;
+        
+    }
+
+
+    /* Style for active state */
+    .topMenu.active {
+        background-color: #ccc; /* Change background color for active */
+        color: #fff; /* Change text color for active */
+    }
+/* Style for logout link */
+.topBarCenter-login a {
+    text-decoration: none;
+    color: #000; /* Change color as needed */
+    transition: color 0.3s ease, background-color 0.3s ease; /* Smooth transition */
+}
+
+    /* Style for logout link on hover */
+    .topBarCenter-login a:hover {
+        color: #fff; /* Change color on hover */
+        background-color: steelblue; /* Change background color on hover */
+    }
+
+
+/*.topMenu {
+    align-items: center;
+    margin: 10px;
+    padding: 10px;*/
+    /*border: 2px solid #ffffff;*/
+    /*width: 70px;
+    transition: 0.4s all ease-in-out;
+    position: relative;
+    text-align: center;
+    text-decoration:none;
+}
+
+    .topMenu a.hover {
+        background-color: #0ebed7;
+        margin-left: -8px;
+    }*/
+
+
+
+.middleBar {
+    background-color: white;
+    height: 100px;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: row;
+}
+
+.middleLeftBar {
+    background-color: steelblue;
+    height: 100%;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    color: #403333;
+    margin:0px;
+    padding-right:10px;
+}
+.middleLeftBarTopBar {
+ height:40px;
+ background-color:#f2f2f2;
+ padding:20px;
+ width:100%;
+}
+ 
+.middleRightBar {
+    background-color: white;
+    height: 100vh;
+    flex: 7;
+    margin-left: 0px;
+
+}
+
+
+
+.bottomBar {
+    background-color: #3da4b2;
+    height: 100px;
+    margin-bottom: 0px;
+}
+
+/*Menu Item*/
+.menu{
+    padding-left:30px;
+    padding-top:20px;
+    color:#403333;
+   
+}
+.menu ul li {
+    list-style: none;
+}
+
+    .menu ul li a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        text-decoration: none;
+        padding: 12px 8px;
+        border-radius: 8px;
+        transition: all 0.3s;
+        color: white;
+    }
+
+        .menu ul li a:hover,
+        .menu ul li:active a {
+            background-color: #0ebed7;
+            color: white;
+        }
+
+.menu .submenu {
+    display: none;
+    margin-left: 20px;
+    padding-left: 20px;
+    padding-top: 5px;
+    border-left: 1px solid #b6c3c4
+}
+
+.menu .submenu {
+    padding: 10px 8px;
+    font-size: 12px;
+}
+
